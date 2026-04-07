@@ -306,14 +306,14 @@ body{animation:bodyFadeIn 0.4s ease both;}
 
 <!-- TOP NAV -->
 <nav class="top-nav">
-  <a class="tn-logo" href="javascript:void(0)" onclick="navigateTo('index.html')">
+  <a class="tn-logo" href="index.html">
     <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
   </a>
   <div class="tn-right">
-    <button class="tn-back" onclick="navigateTo('index.html#tradeshows')">
+    <a class="tn-back" href="trade-shows.html" style="text-decoration:none;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M13 4l-6 6 6 6"/></svg>
       All Shows
-    </button>
+    </a>
     <button class="tn-cta" onclick="showToast('Opening registration...')">List My Company</button>
   </div>
 </nav>
@@ -454,7 +454,7 @@ body{animation:bodyFadeIn 0.4s ease both;}
           <div class="supplier-meta">🌍 ████████ · ████</div>
         </div>
       </div>
-      <button class="btn btn-outline" style="width:100%;margin-top:12px;justify-content:center;" onclick="navigateTo('index.html#directory')">Browse All Exhibitors →</button>
+      <a class="btn btn-outline" style="width:100%;text-decoration:none;margin-top:12px;justify-content:center;" href="directory.html">Browse All Exhibitors →</a>
     </div>
 
     <!-- Requirement CTA -->
@@ -479,13 +479,13 @@ body{animation:bodyFadeIn 0.4s ease both;}
           </div>
           →
         </button>
-        <button class="sb-action-btn" onclick="navigateTo('index.html#directory')">
+        <a class="sb-action-btn" href="directory.html" style="text-decoration:none;">
           <div class="lbl">
             <span>Browse Exhibitors</span>
             <small>See all companies from this show</small>
           </div>
           →
-        </button>
+        </a>
         <button class="sb-action-btn" onclick="showToast('Opening requirement form...')">
           <div class="lbl">
             <span>Post a Requirement</span>
@@ -559,13 +559,13 @@ body{animation:bodyFadeIn 0.4s ease both;}
         </div>
         →
       </button>
-      <button class="sb-action-btn" onclick="navigateTo('index.html#directory')">
+      <a class="sb-action-btn" href="directory.html" style="text-decoration:none;">
         <div class="lbl">
           <span>Browse Exhibitors</span>
           <small>See all companies from this show</small>
         </div>
         →
-      </button>
+      </a>
       <button class="sb-action-btn" onclick="showToast('Opening requirement form...')">
         <div class="lbl">
           <span>Post a Requirement</span>
@@ -711,7 +711,7 @@ const showData = {
 
 // ─── READ URL PARAM ───
 const params = new URLSearchParams(window.location.search);
-const showId = params.get('id') || 'gulfood';
+const showId = params.get('show') || 'gulfood';
 const d = showData[showId];
 
 // ─── POPULATE PAGE ───
@@ -767,7 +767,7 @@ if (d) {
     if (!r) return;
     const div = document.createElement('div');
     div.className = 'related-show';
-    div.onclick = () => navigateTo('show.html?id=' + key);
+    div.onclick = () => { window.location.href = 'show-detail.html?show=' + key; };
     div.innerHTML = `
       <div class="rs-icon" style="background:${r.color}20;">${r.emoji}</div>
       <div style="flex:1;min-width:0;">

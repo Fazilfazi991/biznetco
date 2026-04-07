@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Login / Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab " href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab " href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab " href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab " href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i " href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i " href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i " href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a1f44;padding:20px;">
+    <div class="auth-box" style="position:relative;">
+    <a class="auth-close" style="text-decoration:none" href="index.html">✕</button>
+    <div class="auth-top" style="background:#0a1f44;">
+      <div style="margin-bottom:10px;">
+        <img src="Biznecto_Logo.png" alt="Biznecto" style="height:44px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+      </div>
+      <div class="auth-tagline">CONNECTING BUSINESSES GLOBALLY</div>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="atLogin" onclick="switchAuth('login')">Log In</button>
+      <button class="auth-tab" id="atRegister" onclick="switchAuth('register')">Create Account</button>
+    </div>
+    <div class="auth-body">
+      <!-- Login panel -->
+      <div class="auth-panel on" id="apLogin">
+        <div class="form-group"><label>Email address</label><input type="email" placeholder="you@company.com"/></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Your password"/></div>
+        <button class="btn btn-teal btn-full" style="font-size:14px;padding:13px;" onclick="doLogin()">Log In →</button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn btn-outline btn-full" style="font-size:13px;padding:11px;" onclick="doLogin()">Continue with Google</button>
+        <div class="auth-footer" style="margin-top:16px;">Don't have an account? <span onclick="switchAuth('register')">Create one free →</span></div>
+      </div>
+      <!-- Register panel -->
+      <div class="auth-panel" id="apRegister">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div class="form-group"><label>Company Name</label><input type="text" placeholder="Your company"/></div>
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"/></div>
+        </div>
+        <div class="form-group"><label>Email address</label><input type="email" placeholder="you@company.com"/></div>
+        <div class="form-group"><label>Industry</label><select><option value="">Select industry...</option><option>Food & Beverage</option><option>Technology</option><option>Healthcare</option><option>Energy</option><option>Construction</option><option>Agriculture</option><option>Apparel</option><option>Other</option></select></div>
+        <div class="form-group"><label>Country</label><input type="text" placeholder="e.g. UAE, Germany, UK..."/></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Min. 8 characters"/></div>
+        <button class="btn btn-teal btn-full" style="font-size:14px;padding:13px;" onclick="doRegister()">Create Free Account →</button>
+        <div class="auth-footer">By registering you agree to our <span>Terms</span> & <span>Privacy Policy</span>.<br>Already have an account? <span onclick="switchAuth('login')">Log in</span></div>
+      </div>
+      <!-- Success panel -->
+      <div class="auth-panel" id="apSuccess">
+        <div class="auth-success">
+          <div class="success-icon">✅</div>
+          <h3>You're in!</h3>
+          <p>Welcome to Biznecto. Your free account is ready.<br>Complete your profile to get your first matches.</p>
+          <button class="btn btn-teal btn-full" style="margin-top:20px;font-size:14px;padding:13px;" onclick="closeAuth();goPage('dashboard',null)">Go to Dashboard →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POST REQUIREMENT MODAL -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <div class="msh"></div>
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Free for buyers. Suppliers on Biznecto will see it and respond.</div>
+    <div class="form-group"><label>What do you need?</label><input type="text" placeholder="e.g. 1,000 × Bounty chocolate gift boxes (250g)"/></div>
+    <div class="form-group"><label>Category</label><select><option>Food & Beverage</option><option>Technology</option><option>Healthcare</option><option>Construction</option><option>Agriculture</option><option>Energy</option></select></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group"><label>Quantity</label><input type="text" placeholder="e.g. 1,000 units"/></div>
+      <div class="form-group"><label>Needed By</label><input type="date"/></div>
+    </div>
+    <div class="form-group"><label>Budget (optional)</label><input type="text" placeholder="e.g. AED 5,000 or Open to quotes"/></div>
+    <div class="form-group"><label>Description</label><textarea placeholder="Describe exactly what you need, certifications, packaging, delivery terms..."></textarea></div>
+    <div class="form-group"><label>Your WhatsApp</label><input type="tel" placeholder="+971 50 000 0000"/></div>
+    <button class="btn btn-teal btn-full" style="font-size:14px;padding:13px;" onclick="closeReqModal();showToast('✅ Requirement posted! Suppliers will reach out shortly.')">Post Requirement →</button>
+  </div>
+</div>
+
+<!-- PRODUCT ADD/EDIT MODAL -->
+<div class="prod-modal-overlay" id="prodModal">
+  <div class="prod-modal-sheet">
+    <div class="msh"></div>
+    <button class="ms-close" onclick="closeProdModal()">✕</button>
+    <div class="ms-title" id="prodModalTitle">Add Product</div>
+    <div class="ms-sub">Buyers search by product name — be specific and include certifications.</div>
+    <div style="margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Product Icon</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="emojiPicker">
+        <span class="emoji-opt on" onclick="selectEmoji(this,'🌾')">🌾</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🍯')">🍯</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🍚')">🍚</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🫒')">🫒</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🧴')">🧴</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'💊')">💊</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🔩')">🔩</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'⚡')">⚡</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'👕')">👕</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'📦')">📦</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🍫')">🍫</span>
+        <span class="emoji-opt" onclick="selectEmoji(this,'🌿')">🌿</span>
+      </div>
+    </div>
+    <div class="form-group"><label>Product Name *</label><input type="text" id="pm-name" placeholder="e.g. Raw Sidr Honey Export Grade — 500g jar"/></div>
+    <div class="form-group"><label>Category *</label>
+      <select id="pm-cat">
+        <option value="">Select category...</option>
+        <option>Grains & Cereals</option><option>Oils & Fats</option><option>Honey & Sweeteners</option>
+        <option>Dairy & Eggs</option><option>Beverages</option><option>Snacks & Confectionery</option>
+        <option>Medical Devices</option><option>Pharmaceuticals</option><option>PPE & Safety</option>
+        <option>Electronics & Tech</option><option>Steel & Metals</option><option>Building Materials</option>
+        <option>Agricultural Produce</option><option>Textiles & Apparel</option><option>Chemicals</option>
+        <option>Packaging</option><option>Other</option>
+      </select>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group"><label>Pack Size / Unit</label><input type="text" id="pm-pack" placeholder="e.g. 500g, 25kg, 5L"/></div>
+      <div class="form-group"><label>Min. Order Qty (MOQ)</label><input type="text" id="pm-moq" placeholder="e.g. 50kg, 100 units"/></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group"><label>Price Range (optional)</label><input type="text" id="pm-price" placeholder="e.g. AED 20–30/kg"/></div>
+      <div class="form-group"><label>Incoterm</label><select id="pm-inco"><option value="">Not specified</option><option>EXW</option><option>FOB</option><option>CIF</option><option>DDP</option><option>FCA</option></select></div>
+    </div>
+    <div class="form-group"><label>Certifications</label>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-halal" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> Halal</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-organic" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> Organic</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-iso" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> ISO 22000</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-fda" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> FDA</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-ce" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> CE Mark</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:100px;"><input type="checkbox" id="cert-kosher" style="min-height:auto;border:none;width:13px;height:13px;margin:0;"/> Kosher</label>
+      </div>
+      <input type="text" id="pm-cert-other" placeholder="Other: HACCP, BRC, Grade A... (separate with commas)" style="font-size:13px;"/>
+    </div>
+    <div class="form-group"><label>Product Description</label><textarea id="pm-desc" style="min-height:90px;" placeholder="Describe origin, grade, specifications, and what makes it unique. The more detail, the more buyers can find you in search."></textarea></div>
+    <div style="background:var(--teal-gl);border:1px solid var(--teal-br);border-radius:8px;padding:10px 12px;margin-bottom:16px;font-size:12px;color:var(--teal-d);">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 7v.5"/></svg> Write "Raw Sidr Honey" not just "Honey". Specificity gets you more matches.
+    </div>
+    <button class="btn btn-teal btn-full" style="font-size:14px;padding:13px;" id="prodModalSaveBtn" onclick="saveProd()">Save Product →</button>
+  </div>
+</div>
+
+<style>
+.emoji-opt{font-size:20px;width:36px;height:36px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid transparent;transition:all .15s;}
+.emoji-opt:hover{background:var(--sand);}
+.emoji-opt.on{border-color:var(--teal);background:var(--teal-gl);}
+.prod-modal-overlay{position:fixed;inset:0;z-index:600;background:rgba(13,27,42,0.65);backdrop-filter:blur(4px);display:none;align-items:flex-end;}
+.prod-modal-overlay.open{display:flex;}
+.prod-modal-sheet{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 80px;width:100%;max-height:92vh;overflow-y:auto;animation:slideUp .28s cubic-bezier(.4,0,.2,1);position:relative;}
+@media(min-width:768px){.prod-modal-overlay{align-items:center;justify-content:center;}.prod-modal-sheet{border-radius:20px;max-width:560px;max-height:85vh;padding:28px;}}
+</style>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+
+// ─── ADMIN VIEWS ───
+function admView(name,el){
+  document.querySelectorAll('.adm-view').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('on'));
+  const v=document.getElementById('adv-'+name);if(v)v.classList.add('on');
+  if(el)el.classList.add('on');
+}
+
+// ─── SHOW DETAIL ───
+const showData={
+  gulfood:{name:'Gulfood 2026',emoji:'🍽️',date:'17–21 Feb 2026',loc:'Dubai World Trade Centre, UAE',industry:'Food & Beverage',desc:'The world\'s largest annual food & beverage trade show. Gulfood connects food industry professionals with buyers, distributors, and decision-makers from 190+ countries. Over 5,000 exhibitors across 26 product sectors.',website:'https://gulfood.com',freq:'Annual',size:'5,000+ exhibitors · 100,000+ visitors',highlights:['World\'s largest food trade show','26 product sectors — dairy to specialty food','Dedicated buyer matchmaking sessions','Investor & startup programme'],suppliers:12,color:'#16a34a'},
+  gitex:{name:'GITEX Global 2025',emoji:'💻',date:'13–17 Oct 2025',loc:'Dubai World Trade Centre, UAE',industry:'IT & Technology',desc:'The world\'s largest tech show and startup event. 6,500+ exhibitors across AI, cybersecurity, cloud, and emerging tech.',website:'https://gitex.com',freq:'Annual',size:'6,500+ exhibitors · 180,000+ visitors',highlights:['AI & Future Tech dedicated zones','GITEX Startup Movement — 1,000+ startups','Investor matchmaking','Global Government Summit'],suppliers:8,color:'#2563eb'},
+  arabhealth:{name:'Arab Health 2026',emoji:'🏥',date:'26–29 Jan 2026',loc:'Dubai World Trade Centre, UAE',industry:'Healthcare',desc:'The largest healthcare exhibition and conference in the Middle East & Africa. Showcases medical technologies, devices, diagnostics, and health services.',website:'https://arabhealthonline.com',freq:'Annual',size:'3,000+ exhibitors · 55,000+ visitors',highlights:['Medical devices & diagnostics','Pharma & lab equipment','Hospital design & infrastructure','CME accredited conference'],suppliers:6,color:'#7c3aed'},
+  adipec:{name:'ADIPEC 2025',emoji:'⚡',date:'4–7 Nov 2025',loc:'ADNEC, Abu Dhabi, UAE',industry:'Energy & Petroleum',desc:'The world\'s most impactful energy event. Brings together energy ministers, CEOs, and innovators shaping the future of energy — from oil & gas to renewables.',website:'https://adipec.com',freq:'Annual',size:'2,200+ exhibitors · 160,000+ visitors',highlights:['Oil & gas equipment & services','Energy transition technologies','Offshore & marine zone','Technical conference & awards'],suppliers:4,color:'#f59e0b'},
+  hannover:{name:'Hannover Messe 2026',emoji:'🏭',date:'22–26 Mar 2026',loc:'Hannover Exhibition Grounds, Germany',industry:'Manufacturing',desc:'The world\'s leading trade fair for industrial technology. Covers automation, energy, digital transformation, and industrial supply chains.',website:'https://hannovermesse.de',freq:'Annual',size:'4,000+ exhibitors · 130,000+ visitors',highlights:['Industrial automation & robotics','Digital factory & IIoT','Energy & mobility','Hydrogen & decarbonisation'],suppliers:9,color:'#0a1f44'},
+  ces:{name:'CES 2026',emoji:'📱',date:'7–10 Jan 2026',loc:'Las Vegas Convention Center, USA',industry:'Consumer Electronics',desc:'The most influential tech event in the world. Showcases breakthrough technologies — from 8K TVs to autonomous vehicles, smart homes, and health tech.',website:'https://ces.tech',freq:'Annual',size:'4,500+ exhibitors · 135,000+ visitors',highlights:['Consumer electronics & gadgets','Automotive & mobility tech','Health & wellness tech','Startup & innovation zones'],suppliers:5,color:'#2563eb'},
+  anuga:{name:'Anuga 2025',emoji:'🌾',date:'4–8 Oct 2025',loc:'Cologne Exhibition Centre, Germany',industry:'Food & Beverage',desc:'The world\'s leading trade fair for food and beverages. Global meeting point for the food & beverage sector — buyers from 200+ countries across 10 specialised trade fairs.',website:'https://anuga.com',freq:'Biennial',size:'7,500+ exhibitors · 170,000+ visitors',highlights:['10 specialised shows in one','Organic & health food','Beverages & dairy','Retail & foodservice buyers'],suppliers:7,color:'#16a34a'},
+  big5:{name:'Big 5 Global 2025',emoji:'🏗️',date:'24–27 Nov 2025',loc:'Dubai World Trade Centre, UAE',industry:'Construction',desc:"The Middle East's largest construction and building materials exhibition. Connects construction professionals with suppliers of building materials, systems, and technologies.",website:'https://big5construct.com',freq:'Annual',size:'2,500+ exhibitors · 75,000+ visitors',highlights:['Building materials & products','Structural & civil engineering','Smart building technology','MEP (mechanical, electrical, plumbing)'],suppliers:3,color:'#92400e'}
+};
+function openShow(key){
+  navigateTo('show.html?id='+key);
+}
+
+
+
+// ─── PAGE TRANSITION ───
+function navigateTo(url){
+  const overlay=document.getElementById('page-transition');
+  overlay.classList.add('visible');
+  setTimeout(()=>{window.location.href=url;},380);
+}
+window.addEventListener('pageshow',function(e){
+  const overlay=document.getElementById('page-transition');
+  if(overlay)overlay.classList.remove('visible');
+});
+
+// ─── STATE ───
+let loggedIn = false;
+let currentPlan = 'free';
+let selectedEmoji = '🌾';
+let editingProdId = null;
+const pages = ['home','directory','requirements','tradeshows','pricing','dashboard','showdetail','admin'];
+
+// ─── PAGE NAV ───
+function goPage(id, triggerEl) {
+  if(id === 'dashboard' && !loggedIn){ openAuth('login'); return; }
+  pages.forEach(p => { const el = document.getElementById('page-'+p); if(el) el.classList.toggle('on', p===id); });
+  document.querySelectorAll('.tn-tab').forEach(t => t.classList.remove('on'));
+  if(triggerEl && triggerEl.classList.contains('tn-tab')) triggerEl.classList.add('on');
+  else document.querySelectorAll('.tn-tab').forEach(t => { if(t.textContent.toLowerCase().trim().startsWith(id.slice(0,4))) t.classList.add('on'); });
+  document.querySelectorAll('.bn-i').forEach(b => b.classList.toggle('on', b.dataset.p===id));
+  window.scrollTo(0,0);
+}
+function goCategory(cat) {
+  document.getElementById('dirInput').value = cat;
+  runSearch();
+  goPage('directory', null);
+}
+function fc(el, group) {
+  el.closest('.fchips').querySelectorAll('.fchip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+}
+function runSearch() {
+  const q = document.getElementById('dirInput').value.trim();
+  const defView = document.getElementById('dirDefaultView');
+  const srchView = document.getElementById('dirSearchView');
+  if(q) {
+    defView.style.display='none'; srchView.style.display='block';
+    document.getElementById('searchTerm').textContent=q;
+    document.getElementById('searchCount').textContent=Math.floor(Math.random()*6)+3;
+    const pname1=document.getElementById('prc-pname-1');
+    const pname2=document.getElementById('prc-pname-2');
+    const emoji1=document.getElementById('prc-emoji-1');
+    const ql=q.toLowerCase();
+    if(ql.includes('honey')){ pname1.textContent='Raw Sidr Honey — Export Grade'; pname2.textContent='Manuka Honey MGO 300+ Certified'; emoji1.textContent='🍯'; }
+    else if(ql.includes('steel')||ql.includes('pipe')){ pname1.textContent='Stainless Steel Pipes — Grade 316'; pname2.textContent='Galvanized Steel Pipe — API 5L'; emoji1.textContent='🔩'; }
+    else if(ql.includes('solar')||ql.includes('panel')){ pname1.textContent='Solar Panel 550W Monocrystalline'; pname2.textContent='Solar Panel 400W Bifacial'; emoji1.textContent='⚡'; }
+    else if(ql.includes('glove')||ql.includes('medical')){ pname1.textContent='Nitrile Examination Gloves (Box 100)'; pname2.textContent='Latex Surgical Gloves — Sterile'; emoji1.textContent='🧤'; }
+    else if(ql.includes('chocolate')||ql.includes('bounty')){ pname1.textContent='Bounty Chocolate Gift Box 250g'; pname2.textContent='Mixed Chocolate Gift Set — 12pc'; emoji1.textContent='🍫'; }
+    else if(ql.includes('rice')){ pname1.textContent='Basmati Rice Premium — 25kg Export'; pname2.textContent='Jasmine Rice Grade A — 50kg Bulk'; emoji1.textContent='🍚'; }
+    else { pname1.textContent=q+' — Export Grade'; pname2.textContent=q+' — Premium Quality'; emoji1.textContent='📦'; }
+  } else { clearSearch(); }
+}
+function clearSearch() {
+  document.getElementById('dirInput').value='';
+  document.getElementById('dirDefaultView').style.display='block';
+  document.getElementById('dirSearchView').style.display='none';
+}
+function hs(txt) { document.getElementById('heroInput').value=txt; }
+function doHeroSearch() {
+  const q=document.getElementById('heroInput').value.trim();
+  if(q){ document.getElementById('dirInput').value=q; runSearch(); goPage('directory',null); }
+}
+function openAuth(tab) {
+  document.getElementById('authOverlay').classList.add('open');
+  switchAuth(tab||'login');
+  document.body.style.overflow='hidden';
+}
+function closeAuth() { document.getElementById('authOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function switchAuth(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.auth-panel').forEach(p=>p.classList.remove('on'));
+  const tid='at'+tab.charAt(0).toUpperCase()+tab.slice(1);
+  const pid='ap'+tab.charAt(0).toUpperCase()+tab.slice(1);
+  if(document.getElementById(tid)) document.getElementById(tid).classList.add('on');
+  if(document.getElementById(pid)) document.getElementById(pid).classList.add('on');
+}
+function doLogin() {
+  loggedIn=true;
+  document.querySelectorAll('.auth-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('apSuccess').classList.add('on');
+  document.getElementById('loginBtn').style.display='none';
+  document.getElementById('registerBtn').style.display='none';
+  document.getElementById('tnAvatar').style.display='flex';
+  document.getElementById('dashBtn').style.display='block';
+}
+function doRegister(){ doLogin(); }
+function logout() {
+  loggedIn=false;
+  document.getElementById('loginBtn').style.display='';
+  document.getElementById('registerBtn').style.display='';
+  document.getElementById('tnAvatar').style.display='none';
+  document.getElementById('dashBtn').style.display='none';
+  goPage('home',null); showToast('Logged out');
+}
+document.getElementById('authOverlay').addEventListener('click',function(e){if(e.target===this)closeAuth();});
+function openReqModal(){ document.getElementById('reqModal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeReqModal(){ document.getElementById('reqModal').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('reqModal').addEventListener('click',function(e){if(e.target===this)closeReqModal();});
+
+// PRODUCT MODAL
+const prodData={
+  1:{name:'Wheat Flour 25kg',cat:'Grains & Cereals',pack:'25kg bag',moq:'1 tonne',price:'AED 65-80/bag',desc:'Premium grade wheat flour. Export ready.',emoji:'🌾',certs:['halal','iso']},
+  2:{name:'Basmati Rice Premium',cat:'Grains & Cereals',pack:'50kg bag',moq:'500kg',price:'AED 120-150/50kg',desc:'Long grain aged basmati for retail and food service.',emoji:'🍚',certs:['halal']},
+  3:{name:'Sunflower Oil',cat:'Oils & Fats',pack:'5L / 20L',moq:'200 units',price:'AED 18-22/L',desc:'Refined sunflower oil in 5L PET and 20L bulk containers.',emoji:'🫒',certs:['halal']}
+};
+function openProdModal() {
+  editingProdId=null;
+  document.getElementById('prodModalTitle').textContent='Add Product';
+  document.getElementById('prodModalSaveBtn').textContent='Save Product →';
+  ['pm-name','pm-pack','pm-moq','pm-price','pm-cert-other','pm-desc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  const cat=document.getElementById('pm-cat'); if(cat)cat.value='';
+  ['halal','organic','iso','fda','ce','kosher'].forEach(c=>{const el=document.getElementById('cert-'+c);if(el)el.checked=false;});
+  const first=document.querySelector('.emoji-opt'); if(first)selectEmoji(first,'🌾');
+  document.getElementById('prodModal').classList.add('open'); document.body.style.overflow='hidden';
+}
+function openEditProd(id) {
+  editingProdId=id; const d=prodData[id]; if(!d)return;
+  document.getElementById('prodModalTitle').textContent='Edit Product';
+  document.getElementById('prodModalSaveBtn').textContent='Update Product →';
+  document.getElementById('pm-name').value=d.name;
+  document.getElementById('pm-cat').value=d.cat;
+  document.getElementById('pm-pack').value=d.pack;
+  document.getElementById('pm-moq').value=d.moq;
+  document.getElementById('pm-price').value=d.price;
+  document.getElementById('pm-desc').value=d.desc;
+  document.getElementById('pm-cert-other').value='';
+  ['halal','organic','iso','fda','ce','kosher'].forEach(c=>{const el=document.getElementById('cert-'+c);if(el)el.checked=(d.certs||[]).includes(c);});
+  const emojiEl=Array.from(document.querySelectorAll('.emoji-opt')).find(e=>e.textContent.trim()===d.emoji);
+  if(emojiEl)selectEmoji(emojiEl,d.emoji);
+  document.getElementById('prodModal').classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeProdModal(){ document.getElementById('prodModal').classList.remove('open'); document.body.style.overflow=''; }
+function saveProd(){
+  const name=document.getElementById('pm-name').value.trim();
+  if(!name){showToast('⚠️ Add a product name');return;}
+  closeProdModal(); showToast(editingProdId?'✅ Product updated!':'✅ Product added!');
+}
+function deleteProd(id){
+  const row=document.getElementById('pr-'+id);
+  if(row){row.style.opacity='0';row.style.transition='opacity .3s';setTimeout(()=>{row.remove();showToast('Product deleted');},300);}
+}
+function selectEmoji(el,emoji){
+  document.querySelectorAll('.emoji-opt').forEach(e=>e.classList.remove('on'));
+  el.classList.add('on'); selectedEmoji=emoji;
+}
+if(document.getElementById('prodModal')) document.getElementById('prodModal').addEventListener('click',function(e){if(e.target===this)closeProdModal();});
+
+const dashTitles={overview:'Overview',profile:'My Profile',products:'Products',matches:'My Matches',visibility:'Listing Visibility',upgrade:'Plans & Upgrade',settings:'Settings'};
+const dashSubs={overview:'Welcome back, Ahmed',profile:'Edit your company details',products:'Manage your product catalogue',matches:'Your automatic match results',visibility:'Control what buyers can see',upgrade:'Choose the right plan',settings:'Account & notification settings'};
+function dashView(name,mobEl){
+  document.querySelectorAll('.dview').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.ds-item').forEach(b=>b.classList.remove('on'));
+  const dv=document.getElementById('dv-'+name); if(dv)dv.classList.add('on');
+  const dni=document.getElementById('dni-'+name); if(dni)dni.classList.add('on');
+  if(mobEl){document.querySelectorAll('.dmn-item').forEach(m=>m.classList.remove('on'));mobEl.classList.add('on');}
+  if(document.getElementById('dtbTitle'))document.getElementById('dtbTitle').textContent=dashTitles[name]||name;
+  if(document.getElementById('dtbSub'))document.getElementById('dtbSub').textContent=dashSubs[name]||'';
+  const dm=document.querySelector('.dash-main'); if(dm)dm.scrollTo(0,0);
+}
+function selectPlan(plan){ currentPlan=plan; applyPlan(); showToast('✅ Switched to '+plan.charAt(0).toUpperCase()+plan.slice(1)+'!'); setTimeout(()=>dashView('overview'),1200); }
+function applyPlan(){
+  const p=currentPlan;
+  const dotC={free:'#9eaab6',pro:'#00b89c',premium:'#f59e0b'};
+  if(document.getElementById('dsPlanDot'))document.getElementById('dsPlanDot').style.background=dotC[p];
+  if(document.getElementById('dsPlanName'))document.getElementById('dsPlanName').textContent=p.charAt(0).toUpperCase()+p.slice(1);
+  const banEl=document.getElementById('planBanner');
+  if(banEl){
+    banEl.className='plan-banner '+p;
+    document.getElementById('pbBadge').className='pb-badge '+p;
+    document.getElementById('pbBadge').textContent=p.toUpperCase()+' PLAN';
+    if(p==='free'){
+      document.getElementById('pbTitle').textContent="You're on Free";
+      document.getElementById('pbDesc').textContent="Upgrade to Pro to make products searchable and unlock 5 matches.";
+      document.getElementById('pbRight').innerHTML=`<button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="dashView('upgrade')">Upgrade →</button>`;
+    } else if(p==='pro'){
+      document.getElementById('pbTitle').textContent="You're on Pro";
+      document.getElementById('pbDesc').textContent="Products visible in search · 5 matches · Featured listing.";
+      document.getElementById('pbRight').innerHTML=`<button class="btn" style="background:var(--ink);color:#fff;font-size:12px;padding:8px 14px;" onclick="dashView('upgrade')">→ Premium</button>`;
+    } else {
+      document.getElementById('pbTitle').textContent="You're on Premium";
+      document.getElementById('pbDesc').textContent="Full access · 10+ matches · Unlimited products · Requirement contacts unlocked.";
+      document.getElementById('pbRight').innerHTML=`<span style="font-size:12px;color:var(--green);font-weight:600;">✓ Full access</span>`;
+    }
+  }
+  if(document.getElementById('dStatMatches'))document.getElementById('dStatMatches').textContent=p==='free'?'3':p==='pro'?'5':'10+';
+  if(document.getElementById('dStatMatchSub'))document.getElementById('dStatMatchSub').textContent=p==='free'?'1 visible':'All unlocked';
+  if(document.getElementById('dStatProdSub'))document.getElementById('dStatProdSub').textContent=p==='free'?'Hidden from buyers':p==='pro'?'Visible in search (up to 10)':'Unlimited & visible';
+  if(document.getElementById('visCurrentPlan'))document.getElementById('visCurrentPlan').textContent=p.charAt(0).toUpperCase()+p.slice(1);
+  ['free','pro','premium'].forEach(pl=>{
+    const el=document.getElementById('po-'+pl); if(!el)return;
+    el.className='plan-opt'+(pl===p?' curr':pl==='pro'&&p==='free'?' pop':'');
+    const btn=el.querySelector('.po-btn'); if(!btn)return;
+    btn.disabled=false;
+    if(pl===p){btn.textContent='Active Plan';btn.className='po-btn po-btn-curr';btn.disabled=true;}
+    else if(pl==='pro'){btn.textContent='Upgrade to Pro';btn.className='po-btn po-btn-teal';btn.onclick=()=>selectPlan('pro');}
+    else if(pl==='premium'){btn.textContent='Get Premium';btn.className='po-btn po-btn-navy';btn.onclick=()=>selectPlan('premium');}
+    else{btn.textContent='Switch to Free';btn.className='po-btn po-btn-curr';btn.onclick=()=>selectPlan('free');}
+  });
+}
+function handleProdToggle(){
+  if(currentPlan==='free'){showToast('Upgrade to Pro to enable product search visibility');return;}
+  document.getElementById('prodSearchToggle').classList.toggle('on');
+  showToast('Product search visibility updated');
+}
+function showToast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+const pts=['organic honey','solar panels','medical gloves','steel pipes 316','Bounty chocolate boxes','basmati rice bulk'];
+let pi=0;
+setInterval(()=>{pi=(pi+1)%pts.length;const i=document.getElementById('heroInput');if(i&&document.activeElement!==i)i.placeholder='Search: '+pts[pi]+'...';},3200);
+applyPlan();
+
+</scrip
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('' === 'dashboard' || '' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'dashboard.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>

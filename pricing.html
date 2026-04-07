@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Pricing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab " href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab " href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab on" href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab " href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i " href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i " href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i on" href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div style="background:var(--ink);padding:28px 16px 24px;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Pricing</div>
+    <div style="font-family:var(--fh);font-weight:700;font-size:24px;color:#fff;margin-bottom:6px;letter-spacing:-.3px;">Start Free. Grow When Ready.</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65;">Listing is free forever. Upgrade to unlock full product visibility, all matches, and access to the requirements board contact details.</div>
+  </div>
+  <div class="inner" style="padding-top:20px;padding-bottom:28px;">
+    <div class="pricing-cards">
+      <div class="price-card"><div class="pc-icon" style="font-size:13px;font-weight:700;color:var(--muted);letter-spacing:1px;">FREE</div><div class="pc-name">Free</div><div class="pc-desc">Get listed, be discovered, and see your first match.</div><div><span class="pc-free">Free</span></div><div class="pc-note">No credit card · Forever free</div><div class="pc-div"></div><div class="pc-feats"><div class="pc-feat"><span class="pfc">✓</span>Company listing in directory</div><div class="pc-feat"><span class="pfc">✓</span>1 match delivered automatically</div><div class="pc-feat"><span class="pfc">✓</span>Post requirements (buyers)</div><div class="pc-feat"><span class="pfc">✓</span>Visible in directory</div><div class="pc-feat"><span class="pfc">✓</span>See all requirement titles & details</div><div class="pc-feat"><span class="pfx">✗</span><span class="pfd">Products hidden from search</span></div><div class="pc-feat"><span class="pfx">✗</span><span class="pfd">Contact details on requirements hidden</span></div><div class="pc-feat"><span class="pfx">✗</span><span class="pfd">Cannot respond to requirements</span></div></div><button class="pc-btn pcb-out" href="auth.html?tab=register">Get Started Free</button></div>
+      <div class="price-card feat"><div class="pc-badge">Most Popular</div><div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polygon points="13,2 4,13 10,13 7,22 16,9 10,9"/></svg></div><div class="pc-name">Pro</div><div class="pc-desc">For companies ready to be found and respond to live buyer needs.</div><div class="pc-price"><span class="pc-curr">AED</span><span class="pc-amt">299</span><span class="pc-per">/mo</span></div><div class="pc-note">≈ USD 81 · Cancel anytime</div><div class="pc-div"></div><div class="pc-feats"><div class="pc-feat"><span class="pfc">✓</span>Featured listing, priority placement</div><div class="pc-feat"><span class="pfc">✓</span>5 automatic matches</div><div class="pc-feat"><span class="pfc">✓</span>Product catalogue visible (up to 10)</div><div class="pc-feat"><span class="pfc">✓</span>Searchable by buyers globally</div><div class="pc-feat"><span class="pfc">✓</span>Respond to requirements board</div><div class="pc-feat"><span class="pfc">✓</span>Contact shown + WhatsApp button</div></div><button class="pc-btn pcb-pro" href="auth.html?tab=register">Start Pro →</button></div>
+      <div class="price-card top-plan"><div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="8" r="5"/><path d="M6.5 12.5L5 18l5-2 5 2-1.5-5.5"/></svg></div><div class="pc-name">Premium</div><div class="pc-desc">Full contact access on requirements, max visibility, monthly leads.</div><div class="pc-price"><span class="pc-curr">AED</span><span class="pc-amt">999</span><span class="pc-per">/mo</span></div><div class="pc-note">≈ USD 272 · Includes onboarding call</div><div class="pc-div"></div><div class="pc-feats"><div class="pc-feat"><span class="pfc">✓</span>Everything in Pro</div><div class="pc-feat"><span class="pfc">✓</span>10+ automatic matches</div><div class="pc-feat"><span class="pfc">✓</span>Unlimited products catalogue</div><div class="pc-feat"><span class="pfc">✓</span>Full contact details on all requirements</div><div class="pc-feat"><span class="pfc">✓</span>Top of directory placement</div><div class="pc-feat"><span class="pfc">✓</span>Dedicated support + monthly leads report</div></div><button class="pc-btn" style="background:var(--purple);color:#fff;" href="auth.html?tab=register">Go Premium →</button></div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-size:12px;color:var(--hint);">All prices in AED. Cancel anytime. Buyer requirement posting is always free.</p>
+  </div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('pricing' === 'dashboard' || 'pricing' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'dashboard.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>

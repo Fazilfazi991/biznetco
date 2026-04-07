@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Requirements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab " href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab on" href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab " href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab " href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i " href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i on" href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i " href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div class="req-hdr">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:5px;"><h1>Requirements Board</h1><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--teal);color:#fff;flex-shrink:0;margin-top:4px;">24 open</span></div>
+    <p>Buyers post what they need. Everyone can see requirements.<br>Suppliers on Pro/Premium can view full contact details and respond.</p>
+    <div class="req-hdr-actions">
+      <button class="rha-btn">Filter ▾</button>
+      <button class="rha-btn rha-post" href="requirements.html#post">+ Post Requirement</button>
+    </div>
+  </div>
+  <div class="fchips"><div class="fchip on" onclick="fc(this,'req')">All</div><div class="fchip" onclick="fc(this,'req')">Food & Bev</div><div class="fchip" onclick="fc(this,'req')">Technology</div><div class="fchip" onclick="fc(this,'req')">Healthcare</div><div class="fchip" onclick="fc(this,'req')">Construction</div><div class="fchip" onclick="fc(this,'req')">Agriculture</div></div>
+  <div class="inner" style="padding-top:16px;padding-bottom:20px;">
+
+    <!-- Full requirement card 1 — URGENT -->
+    <div class="req-card">
+      <div class="rc-header"><div><div class="rc-title">1,000 × Bounty Chocolate Gift Boxes (250g)</div><div class="rc-buyer">🇬🇧 Retail chain, United Kingdom · Posted by verified buyer</div></div><span class="urg-hot">Urgent</span></div>
+      <div class="rc-body">
+        <div class="rc-detail-grid">
+          <div class="rc-detail-item"><div class="label">Quantity</div><div class="value">1,000 units</div></div>
+          <div class="rc-detail-item"><div class="label">Needed By</div><div class="value">Mar 15, 2026</div></div>
+          <div class="rc-detail-item"><div class="label">Incoterm</div><div class="value">CIF Dubai</div></div>
+          <div class="rc-detail-item"><div class="label">Budget</div><div class="value">Open to quotes</div></div>
+        </div>
+        <div class="rc-desc-box"><div class="label">Description</div><p>Looking for 1,000 gift boxes of Bounty chocolate (250g size). Must be Halal certified. Packaging should be intact, suitable for retail display. Prefer suppliers who can ship CIF Dubai. Open to negotiation on price for bulk orders.</p></div>
+        <div class="rc-tags"><span class="tag">Confectionery</span><span class="tag">Halal certified</span><span class="tag">Food & Beverage</span><span class="tag">Gulfood</span><span class="tag">Retail ready</span></div>
+        <!-- Contact locked for non-premium -->
+        <div class="rc-contact-locked">
+          <div class="rcl-inner">
+            <div class="rcl-blur"><h5>Sarah Mitchell · +44 7700 ███ ███</h5><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6112001300094f0c2113041500080d020900080f4f020e4f140a">[email&#160;protected]</a> · WhatsApp available</p></div>
+            <div class="rcl-lock"><span class="lock-icon" style="display:flex;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg></span><button class="rcl-lock-btn" onclick="goPage('pricing',null)">Upgrade to Premium<br>to see contact</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="rc-footer"><span class="rc-posted">Posted 2 hours ago · 7 suppliers responded</span><div class="rc-btns"><button class="rcb rcb-save">Save</button><button class="rcb rcb-supply" href="auth.html?tab=register">I Can Supply →</button></div></div>
+    </div>
+
+    <!-- Req card 2 -->
+    <div class="req-card">
+      <div class="rc-header"><div><div class="rc-title">500kg Raw Sidr Honey — Export Grade</div><div class="rc-buyer">🇩🇪 Natural foods importer, Germany</div></div><span class="urg-act">Active</span></div>
+      <div class="rc-body">
+        <div class="rc-detail-grid">
+          <div class="rc-detail-item"><div class="label">Quantity</div><div class="value">500 kg</div></div>
+          <div class="rc-detail-item"><div class="label">Needed By</div><div class="value">Apr 1, 2026</div></div>
+          <div class="rc-detail-item"><div class="label">Certification</div><div class="value">Organic pref.</div></div>
+          <div class="rc-detail-item"><div class="label">Budget</div><div class="value">AED 45–60/kg</div></div>
+        </div>
+        <div class="rc-desc-box"><div class="label">Description</div><p>Sourcing 500kg of raw Sidr honey for import into Germany. Must have origin certification (Yemen or Oman preferred). EU-import compliant documentation required. Organic certification strongly preferred.</p></div>
+        <div class="rc-tags"><span class="tag">Honey</span><span class="tag">Organic</span><span class="tag">Food & Beverage</span><span class="tag">EU compliant</span></div>
+        <div class="rc-contact-locked"><div class="rcl-inner"><div class="rcl-blur"><h5>Klaus Weber · +49 151 ██████</h5><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f299dc8597909780b29c93868780939b9f829d8086dc9697">[email&#160;protected]</a> · LinkedIn available</p></div><div class="rcl-lock"><span class="lock-icon" style="display:flex;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg></span><button class="rcl-lock-btn" onclick="goPage('pricing',null)">Upgrade to Premium<br>to see contact</button></div></div></div>
+      </div>
+      <div class="rc-footer"><span class="rc-posted">1 day ago · 3 responded</span><div class="rc-btns"><button class="rcb rcb-save">Save</button><button class="rcb rcb-supply" href="auth.html?tab=register">I Can Supply →</button></div></div>
+    </div>
+
+    <!-- Req card 3 — OPEN, contact visible (simulating premium view) -->
+    <div class="req-card">
+      <div class="rc-header"><div><div class="rc-title">10,000 Units LED Strip Lights (12V, 5m roll)</div><div class="rc-buyer">🇸🇦 Electrical wholesaler, Saudi Arabia</div></div><span class="urg-open">Open</span></div>
+      <div class="rc-body">
+        <div class="rc-detail-grid">
+          <div class="rc-detail-item"><div class="label">Quantity</div><div class="value">10,000 units</div></div>
+          <div class="rc-detail-item"><div class="label">Needed By</div><div class="value">Flexible</div></div>
+          <div class="rc-detail-item"><div class="label">Incoterm</div><div class="value">FOB China</div></div>
+          <div class="rc-detail-item"><div class="label">Budget</div><div class="value">$2.50–4.00/unit</div></div>
+        </div>
+        <div class="rc-desc-box"><div class="label">Description</div><p>Need 10,000 rolls of LED strip lights, 12V, 5 meters each. SMD 5050 or 2835 acceptable. Must have CE certification. Packaging for retail optional. Regular orders possible if quality is good.</p></div>
+        <div class="rc-tags"><span class="tag">LED Lighting</span><span class="tag">Technology</span><span class="tag">CE certified</span><span class="tag">GITEX</span></div>
+        <!-- Contact visible for premium demo -->
+        <div class="rc-contact-visible">
+          <div style="font-size:10px;font-weight:600;color:var(--teal-d);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">⭐ Premium — Contact Details</div>
+          <div class="rcv-row"><div class="rcv-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M4 2h4l2 5-2.5 1.5c1 2 3 4 5 5L14 11l5 2v4a2 2 0 01-2 2C7 19 1 13 1 4a2 2 0 012-2z"/></svg></div><div><h5>Fahad Al-Rashidi</h5><p>+966 55 234 5678 (WhatsApp)</p></div></div>
+          <div class="rcv-row"><div class="rcv-icon">📧</div><div><h5><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb8d8a838a8fab80988ac68e878e889f9982888a87c5888486">[email&#160;protected]</a></h5><p>Usually replies within 2 hours</p></div></div>
+        </div>
+      </div>
+      <div class="rc-footer"><span class="rc-posted">3 days ago · 5 responded</span><div class="rc-btns"><button class="rcb rcb-save">Save</button><button class="rcb rcb-supply">I Can Supply →</button></div></div>
+    </div>
+
+    <!-- Locked requirement cards (contact locked for non-pro) -->
+    <div class="req-locked-card"><div class="rlc-blur"><div class="rc-title">20,000 Disposable Nitrile Medical Gloves</div><div class="rc-buyer">🌍 Hospital group, Southeast Asia</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;"><span class="rpc-det" style="font-size:11px;background:var(--sand);padding:3px 8px;border-radius:5px;">📦 <strong>20,000 pairs</strong></span><span class="rpc-det" style="font-size:11px;background:var(--sand);padding:3px 8px;border-radius:5px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="8"/><path d="M10 6v8M8 8h3a1 1 0 010 2H9a1 1 0 000 2h3"/></svg> <strong>USD 8,000</strong></span></div></div><div class="rlc-overlay"><button class="rlc-btn" onclick="goPage('pricing',null)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg> Upgrade Pro to respond</button></div></div>
+
+    <div class="post-req-box">
+      <h4>Are you a buyer?</h4>
+      <p>Post your requirement for free. Verified suppliers will reach out directly — no cold calls, no middlemen.</p>
+      <button class="btn btn-teal btn-full" href="requirements.html#post">+ Post a Requirement — Free</button>
+    </div>
+  </div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('requirements' === 'dashboard' || 'requirements' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'dashboard.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>

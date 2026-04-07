@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab on" href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab " href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab " href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab " href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i on" href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i " href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i " href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div class="dir-search-bar">
+    <div class="dsb-row">
+      <input class="dsb-input" type="text" id="dirInput" placeholder="Search a product e.g. 'organic honey', 'steel pipes'..."/>
+      <button class="dsb-btn" onclick="runSearch()">Search</button>
+    </div>
+    <div class="dsb-selects">
+      <select class="dsb-sel" onchange="runSearch()"><option>All Industries</option><option>Food & Beverage</option><option>Technology</option><option>Healthcare</option><option>Energy</option><option>Construction</option></select>
+      <select class="dsb-sel" onchange="runSearch()"><option>All Countries</option><option>UAE</option><option>Germany</option><option>UK</option><option>Singapore</option><option>USA</option></select>
+      <select class="dsb-sel" onchange="runSearch()"><option>All Shows</option><option>Gulfood</option><option>GITEX</option><option>Arab Health</option><option>Hannover Messe</option></select>
+    </div>
+  </div>
+  <div class="fchips" id="dirChips">
+    <div class="fchip on" onclick="fc(this,'dir')">All</div>
+    <div class="fchip" onclick="fc(this,'dir')">Food & Bev</div>
+    <div class="fchip" onclick="fc(this,'dir')">Technology</div>
+    <div class="fchip" onclick="fc(this,'dir')">Healthcare</div>
+    <div class="fchip" onclick="fc(this,'dir')">Energy</div>
+    <div class="fchip" onclick="fc(this,'dir')">Construction</div>
+    <div class="fchip" onclick="fc(this,'dir')">Agriculture</div>
+    <div class="fchip" onclick="fc(this,'dir')">Gulfood</div>
+    <div class="fchip" onclick="fc(this,'dir')">GITEX</div>
+  </div>
+
+  <div class="inner" style="padding-top:14px;padding-bottom:20px;">
+
+    <!-- Default state: company listing view -->
+    <div id="dirDefaultView">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Showing <strong style="color:var(--ink);">10,000+</strong> companies · <span style="color:var(--teal);">Search by product name to find specific suppliers →</span></div>
+
+      <!-- Card 1 -->
+      <div class="lcard">
+        <div class="lc-top">
+          <div class="lc-logo" style="background:#16a34a;">AF</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;flex-wrap:wrap;"><h3 class="lc-meta" style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">AlphaFoods GmbH</h3><span class="badge-prem">⭐ Premium</span></div>
+            <div class="lc-loc">🇩🇪 Germany · Food & Beverage</div>
+            <div class="lc-tags" style="margin-top:4px;"><span class="tag">Gulfood</span><span class="tag">Anuga</span><span class="tag">Supplier</span></div>
+          </div>
+        </div>
+        <div class="lc-prods"><span class="lc-prod">Organic honey</span><span class="lc-prod">Herbal teas</span><span class="lc-prod">Dried fruit</span><span class="lc-prod">Nut spreads</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6;">Organic food manufacturer · 50+ certified SKUs · Halal & ISO 22000 · Exporting to 30+ countries</div>
+        <div class="lc-bottom"><button class="btn btn-teal btn-full">Connect via WhatsApp</button><button class="btn btn-sand">View Profile</button></div>
+      </div>
+
+      <div class="lcard">
+        <div class="lc-top">
+          <div class="lc-logo" style="background:#2563eb;">MT</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;flex-wrap:wrap;"><h3 style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">MedTech Solutions</h3><span class="badge-pro">◆ Pro</span></div>
+            <div class="lc-loc">🇬🇧 United Kingdom · Healthcare</div>
+            <div class="lc-tags" style="margin-top:4px;"><span class="tag">Arab Health</span><span class="tag">Manufacturer</span></div>
+          </div>
+        </div>
+        <div class="lc-prods"><span class="lc-prod">Surgical gloves</span><span class="lc-prod">Diagnostic kits</span><span class="lc-prod">PPE sets</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6;">CE & ISO 13485 certified · Medical devices and diagnostics · MOQ from 500 units</div>
+        <div class="lc-bottom"><button class="btn btn-teal btn-full">Connect via WhatsApp</button><button class="btn btn-sand">View Profile</button></div>
+      </div>
+
+      <div class="lcard">
+        <div class="lc-top">
+          <div class="lc-logo" style="background:#9eaab6;">ST</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;flex-wrap:wrap;"><h3 style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">SteelTrade Co.</h3><span class="badge-free">Free</span></div>
+            <div class="lc-loc">🇹🇷 Turkey · Construction</div>
+            <div class="lc-tags" style="margin-top:4px;"><span class="tag">Big 5</span></div>
+          </div>
+        </div>
+        <div class="lc-prods"><span class="lc-locked-prod">Steel pipes</span><span class="lc-locked-prod">Valves</span><span class="lc-locked-prod">Rebar</span></div>
+        <div style="font-size:12px;color:var(--muted);background:var(--sand);border-radius:8px;padding:9px 12px;margin-bottom:12px;display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg> Products and contact hidden · <a href="#" style="color:var(--blue);font-weight:600;" onclick="openAuth('register');return false;">Upgrade to see</a></div>
+      </div>
+
+      <div class="locked-row"><div class="lr-blur"><h4>████████ Trading LLC</h4><p>🌍 ████████ · ████ products listed</p></div><button class="btn btn-teal" style="font-size:12px;flex-shrink:0;" href="auth.html?tab=register">Upgrade →</button></div>
+      <div style="text-align:center;font-size:13px;color:var(--hint);margin-bottom:8px;">+ 9,996 more companies · <a href="#" style="color:var(--blue);font-weight:600;" onclick="goPage('pricing',null);return false;">Upgrade to browse all</a></div>
+    </div>
+
+    <!-- Product search results (shown after search) -->
+    <div id="dirSearchView" style="display:none;">
+      <div id="searchNote" class="search-note"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg> Product results for "<span id="searchTerm"></span>" — <span id="searchCount">4</span> suppliers found</div>
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:9px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#92400e;display:flex;align-items:flex-start;gap:8px;"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 7v.5"/></svg></span><span><strong>Visibility rule:</strong> Product details are open to everyone. Contact details (phone/email/WhatsApp) unlock with <strong>your Premium account</strong>.</span></div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:12px;font-weight:500;">Sorted by relevance · Pro & Premium suppliers first</div>
+      <div class="prod-result-card">
+        <div class="prc-product-block"><div class="prc-emoji" id="prc-emoji-1">🍯</div><div class="prc-product-info"><div class="prc-product-name" id="prc-pname-1">Raw Sidr Honey — Export Grade</div><div class="prc-product-meta"><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg> MOQ: 50kg</span><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="4" width="12" height="14" rx="2"/><path d="M7 4V2M13 4V2M7 9h6"/></svg> Pack: 1kg, 5kg, 25kg</span><span class="prc-meta-chip">✓ Halal</span><span class="prc-meta-chip">✓ Organic</span></div><div class="prc-product-desc">Premium raw Sidr honey from Yemeni mountains. Rich dark colour, strong flavour. EU-import compliant. Full origin documentation available.</div></div></div>
+        <div class="prc-divider"></div>
+        <div class="prc-supplier-block">
+          <div style="font-size:10px;font-weight:600;color:var(--hint);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Supplied by</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;"><div style="width:36px;height:36px;border-radius:8px;background:#16a34a;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;font-size:11px;color:#fff;flex-shrink:0;">YH</div><div style="flex:1;min-width:0;"><div style="font-family:var(--fh);font-weight:600;font-size:13px;color:var(--ink);">Yemeni Honey Co. <span class="badge-prem" style="margin-left:4px;">⭐ Premium</span></div><div style="font-size:11px;color:var(--muted);">🇾🇪 Yemen · Food &amp; Beverage · Gulfood exhibitor</div></div><button class="btn btn-sand" style="font-size:11px;padding:6px 11px;flex-shrink:0;">Profile</button></div>
+          <div class="prc-contact-row"><div class="pcr-blur"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M5 3a1 1 0 000 2c4.4 0 8 3.6 8 8a1 1 0 002 0 10 10 0 00-10-10z"/><path d="M5 7a1 1 0 000 2 4 4 0 014 4 1 1 0 002 0 6 6 0 00-6-6z"/><circle cx="5" cy="17" r="1" fill="currentColor"/></svg> +967 71 ███ ████ · <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f78385969392b78e929a92999e9f9899928ed994989a">[email&#160;protected]</a></div><button class="pcr-lock-btn" onclick="goPage('pricing',null)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg> Premium to contact</button></div>
+        </div>
+      </div>
+      <div class="prod-result-card">
+        <div class="prc-product-block"><div class="prc-emoji">🍯</div><div class="prc-product-info"><div class="prc-product-name" id="prc-pname-2">Manuka Honey MGO 300+ Certified</div><div class="prc-product-meta"><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg> MOQ: 100 jars</span><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="4" width="12" height="14" rx="2"/><path d="M7 4V2M13 4V2M7 9h6"/></svg> Pack: 250g, 500g</span><span class="prc-meta-chip">✓ MGO Certified</span><span class="prc-meta-chip">✓ ISO 22000</span></div><div class="prc-product-desc">Authentic New Zealand Manuka honey with MGO 300+ certification. Premium retail-ready packaging. Halal certified.</div></div></div>
+        <div class="prc-divider"></div>
+        <div class="prc-supplier-block">
+          <div style="font-size:10px;font-weight:600;color:var(--hint);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Supplied by</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;"><div style="width:36px;height:36px;border-radius:8px;background:#f59e0b;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;font-size:11px;color:#fff;flex-shrink:0;">NB</div><div style="flex:1;min-width:0;"><div style="font-family:var(--fh);font-weight:600;font-size:13px;color:var(--ink);">NaturaBee GmbH <span class="badge-prem" style="margin-left:4px;">⭐ Premium</span></div><div style="font-size:11px;color:var(--muted);">🇩🇪 Germany · Food &amp; Beverage · Anuga exhibitor</div></div><button class="btn btn-sand" style="font-size:11px;padding:6px 11px;flex-shrink:0;">Profile</button></div>
+          <div class="prc-contact-row"><div class="pcr-blur"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M5 3a1 1 0 000 2c4.4 0 8 3.6 8 8a1 1 0 002 0 10 10 0 00-10-10z"/><path d="M5 7a1 1 0 000 2 4 4 0 014 4 1 1 0 002 0 6 6 0 00-6-6z"/><circle cx="5" cy="17" r="1" fill="currentColor"/></svg> +49 89 ███ ████ · <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72170a021d0006321c13060700131017175c1617">[email&#160;protected]</a></div><button class="pcr-lock-btn" onclick="goPage('pricing',null)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg> Premium to contact</button></div>
+        </div>
+      </div>
+      <div class="prod-result-card">
+        <div class="prc-product-block"><div class="prc-emoji">🍯</div><div class="prc-product-info"><div class="prc-product-name">Wildflower Honey Bulk — Halal Export</div><div class="prc-product-meta"><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg> MOQ: 200kg</span><span class="prc-meta-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="4" width="12" height="14" rx="2"/><path d="M7 4V2M13 4V2M7 9h6"/></svg> Pack: 25kg drum</span><span class="prc-meta-chip">✓ Halal</span></div><div class="prc-product-desc">Bulk wildflower honey in 25kg food-grade drums. For food processing, bakeries, re-packing. Export grade, FOB Casablanca.</div></div></div>
+        <div class="prc-divider"></div>
+        <div class="prc-supplier-block">
+          <div style="font-size:10px;font-weight:600;color:var(--hint);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Supplied by</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;"><div style="width:36px;height:36px;border-radius:8px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;font-size:11px;color:#fff;flex-shrink:0;">MA</div><div style="flex:1;min-width:0;"><div style="font-family:var(--fh);font-weight:600;font-size:13px;color:var(--ink);">MaghrebAgri Export <span class="badge-pro" style="margin-left:4px;">◆ Pro</span></div><div style="font-size:11px;color:var(--muted);">🇲🇦 Morocco · Agriculture · Gulfood exhibitor</div></div><button class="btn btn-sand" style="font-size:11px;padding:6px 11px;flex-shrink:0;">Profile</button></div>
+          <div class="prc-contact-row"><div class="pcr-blur"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M5 3a1 1 0 000 2c4.4 0 8 3.6 8 8a1 1 0 002 0 10 10 0 00-10-10z"/><path d="M5 7a1 1 0 000 2 4 4 0 014 4 1 1 0 002 0 6 6 0 00-6-6z"/><circle cx="5" cy="17" r="1" fill="currentColor"/></svg> +212 6 ███ ████ · <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2d6d0c3c6c7e2cfc3c5cad0c7c0c3c5d0cb8ccfc3">[email&#160;protected]</a></div><button class="pcr-lock-btn" onclick="goPage('pricing',null)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg> Premium to contact</button></div>
+        </div>
+      </div>
+      <div class="prod-result-card" style="background:#fafaf9;border-style:dashed;position:relative;overflow:hidden;min-height:100px;"><div style="filter:blur(5px);user-select:none;pointer-events:none;padding:16px;"><div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:4px;">████████ Honey</div><div style="font-size:12px;color:var(--muted);">████ ████ ████</div></div><div style="position:absolute;inset:0;background:rgba(247,245,240,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px;"><div style="font-size:12px;color:var(--muted);">More results available</div><button class="btn btn-blue" style="font-size:12px;" onclick="goPage('pricing',null)">Upgrade Pro to see all →</button></div></div>
+      <div style="text-align:center;margin-top:12px;margin-bottom:20px;"><button class="btn btn-outline" onclick="clearSearch()" style="font-size:12px;">← Browse all companies</button></div>
+    </div>
+
+  </div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('directory' === 'dashboard' || 'directory' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'dashboard.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>

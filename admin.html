@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab " href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab " href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab " href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab on" href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i " href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i " href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i " href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div style="background:linear-gradient(135deg,#1a0a2e,#2d1458);padding:20px 16px 16px;border-bottom:2px solid var(--purple);">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span style="display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="3"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4"/></svg></span><div style="font-family:var(--fh);font-weight:700;font-size:20px;color:#fff;">Admin Panel</div><span style="font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--purple);color:#fff;">MVP</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);">Internal use only · Biznecto management dashboard</div>
+  </div>
+  <div style="display:flex;gap:0;overflow-x:auto;background:#fff;border-bottom:1px solid var(--border);scrollbar-width:none;">
+    <button class="adm-tab on" onclick="admView('overview',this)">Overview</button>
+    <button class="adm-tab" onclick="admView('users',this)">Users</button>
+    <button class="adm-tab" onclick="admView('listings',this)">Listings</button>
+    <button class="adm-tab" onclick="admView('reqs',this)">Requirements</button>
+    <button class="adm-tab" onclick="admView('revenue',this)">Revenue</button>
+    <button class="adm-tab" onclick="admView('shows',this)">Shows</button>
+    <button class="adm-tab" onclick="admView('config',this)">Settings</button>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:16px;">
+    <div class="adm-view on" id="adv-overview">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div class="adm-stat"><div class="adm-stat-lbl">Total Companies</div><div class="adm-stat-val">10,247</div><div class="adm-stat-sub" style="color:var(--green);">↑ 142 this week</div></div>
+        <div class="adm-stat" style="border-left-color:var(--amber);"><div class="adm-stat-lbl">Paid Subscribers</div><div class="adm-stat-val">384</div><div class="adm-stat-sub" style="color:var(--green);">↑ 23 this month</div></div>
+        <div class="adm-stat" style="border-left-color:var(--blue);"><div class="adm-stat-lbl">Open Requirements</div><div class="adm-stat-val">91</div><div class="adm-stat-sub">24 posted today</div></div>
+        <div class="adm-stat" style="border-left-color:var(--purple);"><div class="adm-stat-lbl">MRR (AED)</div><div class="adm-stat-val">87,450</div><div class="adm-stat-sub" style="color:var(--green);">↑ 12% vs last month</div></div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title">Plan Distribution</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="font-weight:600;">Free</span><span style="color:var(--muted);">9,863 (96.2%)</span></div><div style="height:8px;background:var(--sand2);border-radius:4px;overflow:hidden;"><div style="height:100%;width:96%;background:var(--hint);border-radius:4px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="font-weight:600;color:var(--blue);">Pro · AED 299</span><span style="color:var(--muted);">287 (2.8%)</span></div><div style="height:8px;background:var(--sand2);border-radius:4px;overflow:hidden;"><div style="height:100%;width:30%;background:var(--blue);border-radius:4px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="font-weight:600;color:var(--purple);">Premium · AED 999</span><span style="color:var(--muted);">97 (0.9%)</span></div><div style="height:8px;background:var(--sand2);border-radius:4px;overflow:hidden;"><div style="height:100%;width:10%;background:var(--purple);border-radius:4px;"></div></div></div>
+        </div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M6 10a4 4 0 018 0c0 4 2 5 2 5H4s2-1 2-5"/><path d="M8.5 18a1.5 1.5 0 003 0"/></svg> Recent Activity</div>
+        <div class="adm-activity-row"><span class="adm-act-badge" style="background:#dbeafe;color:var(--blue);">New Pro</span><span style="flex:1;font-size:12px;">TechXports UAE upgraded to Pro</span><span style="font-size:11px;color:var(--hint);">5 min ago</span></div>
+        <div class="adm-activity-row"><span class="adm-act-badge" style="background:#ede9fe;color:var(--purple);">New Premium</span><span style="flex:1;font-size:12px;">AlphaFoods GmbH upgraded to Premium</span><span style="font-size:11px;color:var(--hint);">1h ago</span></div>
+        <div class="adm-activity-row"><span class="adm-act-badge" style="background:var(--teal-gl);color:var(--teal-d);">New Listing</span><span style="flex:1;font-size:12px;">SteelTrade Co. created profile</span><span style="font-size:11px;color:var(--hint);">2h ago</span></div>
+        <div class="adm-activity-row"><span class="adm-act-badge" style="background:#fef3c7;color:#92400e;">Requirement</span><span style="flex:1;font-size:12px;">New: 1,000 Bounty boxes (UK buyer)</span><span style="font-size:11px;color:var(--hint);">2h ago</span></div>
+        <div class="adm-activity-row"><span class="adm-act-badge" style="background:#fee2e2;color:var(--coral);">Cancelled</span><span style="flex:1;font-size:12px;">MarketPro FZ cancelled Pro plan</span><span style="font-size:11px;color:var(--hint);">Yesterday</span></div>
+      </div>
+    </div>
+    <div class="adm-view" id="adv-users">
+      <div class="adm-card" style="padding:0;overflow:hidden;">
+        <div style="padding:12px 14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border);">
+          <div style="font-family:var(--fh);font-weight:600;font-size:14px;">All Users <span style="font-weight:400;color:var(--muted);font-size:12px;">(10,247)</span></div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap;"><input type="text" placeholder="Search..." style="border:1px solid var(--border);border-radius:7px;padding:6px 11px;font-size:12px;font-family:var(--fb);outline:none;"/><select style="border:1px solid var(--border);border-radius:7px;padding:6px 10px;font-size:12px;font-family:var(--fb);outline:none;-webkit-appearance:none;cursor:pointer;"><option>All Plans</option><option>Free</option><option>Pro</option><option>Premium</option></select></div>
+        </div>
+        <div style="overflow-x:auto;"><table class="adm-table"><thead><tr><th>Company</th><th>Country</th><th>Plan</th><th>Joined</th><th>Products</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+          <tr><td><div style="font-weight:600;font-size:13px;color:var(--ink);">AlphaFoods GmbH</div><div style="font-size:11px;color:var(--muted);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="36575e5b535276575a465e575144575f58185753">[email&#160;protected]</a></div></td><td>🇩🇪 DE</td><td><span class="badge-prem">⭐</span></td><td style="font-size:11px;color:var(--muted);">Jan 15</td><td style="font-size:12px;font-weight:600;">8</td><td><span style="font-size:10px;padding:2px 7px;border-radius:100px;background:#dcfce7;color:#166534;font-weight:700;">Active</span></td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit user')">Edit</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('User suspended')">Suspend</button></div></td></tr>
+          <tr><td><div style="font-weight:600;font-size:13px;color:var(--ink);">MedTech Solutions</div><div style="font-size:11px;color:var(--muted);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a23242c250a272f2e3e2f2922642925643f21">[email&#160;protected]</a></div></td><td>🇬🇧 UK</td><td><span class="badge-pro">◆</span></td><td style="font-size:11px;color:var(--muted);">Feb 3</td><td style="font-size:12px;font-weight:600;">5</td><td><span style="font-size:10px;padding:2px 7px;border-radius:100px;background:#dcfce7;color:#166534;font-weight:700;">Active</span></td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit user')">Edit</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('User suspended')">Suspend</button></div></td></tr>
+          <tr><td><div style="font-weight:600;font-size:13px;color:var(--ink);">SteelTrade Co.</div><div style="font-size:11px;color:var(--muted);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b2824253f2a283f0b383f2e2e273f392a2f2e653f39">[email&#160;protected]</a></div></td><td>🇹🇷 TR</td><td><span class="badge-free">Free</span></td><td style="font-size:11px;color:var(--muted);">Mar 20</td><td style="font-size:12px;font-weight:600;">3</td><td><span style="font-size:10px;padding:2px 7px;border-radius:100px;background:#fef9c3;color:#854d0e;font-weight:700;">Incomplete</span></td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit user')">Edit</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('User suspended')">Suspend</button></div></td></tr>
+        </tbody></table></div>
+        <div style="padding:10px 14px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);">Showing 3 of 10,247</div>
+      </div>
+    </div>
+    <div class="adm-view" id="adv-listings">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+        <div class="adm-card" style="text-align:center;cursor:pointer;" onclick="showToast('3 listings pending')"><div style="font-size:28px;margin-bottom:6px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 10l5 5 9-9"/></svg></div><div style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">Approve Listing</div><div style="font-size:12px;color:var(--muted);margin-top:3px;">3 pending review</div></div>
+        <div class="adm-card" style="text-align:center;cursor:pointer;" onclick="showToast('Suspend listing')"><div style="font-size:28px;margin-bottom:6px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="8"/><path d="M4.9 4.9l10.2 10.2"/></svg></div><div style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">Suspend Listing</div><div style="font-size:12px;color:var(--muted);margin-top:3px;">Flag & remove</div></div>
+        <div class="adm-card" style="text-align:center;cursor:pointer;" onclick="showToast('Feature listing')"><div style="font-size:28px;margin-bottom:6px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polygon points="10,2 12.4,7.5 18.5,8.2 14.1,12.3 15.4,18.3 10,15.3 4.6,18.3 5.9,12.3 1.5,8.2 7.6,7.5"/></svg></div><div style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">Feature Listing</div><div style="font-size:12px;color:var(--muted);margin-top:3px;">Boost placement</div></div>
+        <div class="adm-card" style="text-align:center;cursor:pointer;" onclick="showToast('Edit categories')"><div style="font-size:28px;margin-bottom:6px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 3h7l8 8-7 7-8-8V3z"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg></div><div style="font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);">Edit Categories</div><div style="font-size:12px;color:var(--muted);margin-top:3px;">Manage industry tags</div></div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title">Pending Approval (3)</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:11px;background:var(--sand);border-radius:9px;flex-wrap:wrap;"><div style="flex:1;"><div style="font-weight:600;font-size:13px;color:var(--ink);">GoldenHive Trading</div><div style="font-size:11px;color:var(--muted);">🇸🇦 Saudi Arabia · Food & Beverage</div></div><div style="display:flex;gap:6px;"><button class="btn btn-teal" style="font-size:11px;padding:6px 12px;" onclick="showToast('Approved ✅')">Approve</button><button class="btn" style="background:#fee2e2;color:var(--coral);font-size:11px;padding:6px 12px;border:none;" onclick="showToast('Rejected')">Reject</button></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:11px;background:var(--sand);border-radius:9px;flex-wrap:wrap;"><div style="flex:1;"><div style="font-weight:600;font-size:13px;color:var(--ink);">EcoPackage Ltd</div><div style="font-size:11px;color:var(--muted);">🇬🇧 UK · Packaging · Pro</div></div><div style="display:flex;gap:6px;"><button class="btn btn-teal" style="font-size:11px;padding:6px 12px;" onclick="showToast('Approved ✅')">Approve</button><button class="btn" style="background:#fee2e2;color:var(--coral);font-size:11px;padding:6px 12px;border:none;" onclick="showToast('Rejected')">Reject</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="adm-view" id="adv-reqs">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+        <div class="adm-card" style="text-align:center;"><div style="font-family:var(--fh);font-weight:700;font-size:28px;color:var(--ink);">91</div><div style="font-size:12px;color:var(--muted);">Open requirements</div></div>
+        <div class="adm-card" style="text-align:center;"><div style="font-family:var(--fh);font-weight:700;font-size:28px;color:var(--coral);">4</div><div style="font-size:12px;color:var(--muted);">Flagged / spam</div></div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title">All Requirements</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:11px;background:var(--sand);border-radius:9px;flex-wrap:wrap;"><div style="flex:1;"><div style="font-weight:600;font-size:13px;color:var(--ink);margin-bottom:2px;">1,000 × Bounty Chocolate Gift Boxes</div><div style="font-size:11px;color:var(--muted);">🇬🇧 UK buyer · 2h ago · 7 responses</div></div><div style="display:flex;gap:5px;flex-shrink:0;"><button class="adm-act-btn" onclick="showToast('Viewing')">View</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('Removed')">Remove</button></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:11px;background:var(--sand);border-radius:9px;flex-wrap:wrap;"><div style="flex:1;"><div style="font-weight:600;font-size:13px;color:var(--ink);margin-bottom:2px;">500kg Raw Sidr Honey</div><div style="font-size:11px;color:var(--muted);">🇩🇪 German buyer · 1d ago · 3 responses</div></div><div style="display:flex;gap:5px;flex-shrink:0;"><button class="adm-act-btn" onclick="showToast('Viewing')">View</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('Removed')">Remove</button></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:11px;background:#fee2e2;border-radius:9px;border:1px solid #fca5a5;flex-wrap:wrap;"><div style="flex:1;"><div style="font-weight:600;font-size:13px;color:var(--coral);margin-bottom:2px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M10 3L1 17h18L10 3z"/><path d="M10 9v4M10 15v.5"/></svg> Flagged: suspicious content</div><div style="font-size:11px;color:var(--muted);">Unknown buyer · 3d ago · 0 responses</div></div><div style="display:flex;gap:5px;flex-shrink:0;"><button class="adm-act-btn" onclick="showToast('Review')">Review</button><button class="adm-act-btn" style="color:var(--coral);" onclick="showToast('Deleted')">Delete</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="adm-view" id="adv-revenue">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+        <div class="adm-stat"><div class="adm-stat-lbl">MRR</div><div class="adm-stat-val">AED 87,450</div><div class="adm-stat-sub" style="color:var(--green);">↑ 12% vs last month</div></div>
+        <div class="adm-stat" style="border-left-color:var(--amber);"><div class="adm-stat-lbl">ARR (projected)</div><div class="adm-stat-val">AED 1.05M</div><div class="adm-stat-sub">Based on current MRR</div></div>
+        <div class="adm-stat" style="border-left-color:var(--blue);"><div class="adm-stat-lbl">Pro Revenue</div><div class="adm-stat-val">AED 85,913</div><div class="adm-stat-sub">287 × AED 299</div></div>
+        <div class="adm-stat" style="border-left-color:var(--purple);"><div class="adm-stat-lbl">Premium Revenue</div><div class="adm-stat-val">AED 96,903</div><div class="adm-stat-sub">97 × AED 999</div></div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title">Recent Transactions</div>
+        <div style="overflow-x:auto;"><table class="adm-table"><thead><tr><th>Company</th><th>Plan</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead><tbody>
+          <tr><td style="font-size:13px;font-weight:600;">TechXports UAE</td><td><span class="badge-pro">Pro</span></td><td style="font-size:13px;font-weight:600;color:var(--green);">AED 299</td><td style="font-size:12px;color:var(--muted);">Today</td><td><span style="font-size:10px;padding:2px 8px;border-radius:100px;background:#dcfce7;color:#166534;font-weight:700;">Paid</span></td></tr>
+          <tr><td style="font-size:13px;font-weight:600;">AlphaFoods GmbH</td><td><span class="badge-prem">Premium</span></td><td style="font-size:13px;font-weight:600;color:var(--green);">AED 999</td><td style="font-size:12px;color:var(--muted);">Yesterday</td><td><span style="font-size:10px;padding:2px 8px;border-radius:100px;background:#dcfce7;color:#166534;font-weight:700;">Paid</span></td></tr>
+          <tr><td style="font-size:13px;font-weight:600;">MarketPro FZ</td><td><span class="badge-pro">Pro</span></td><td style="font-size:13px;font-weight:600;color:var(--coral);">AED 299</td><td style="font-size:12px;color:var(--muted);">2 days ago</td><td><span style="font-size:10px;padding:2px 8px;border-radius:100px;background:#fee2e2;color:var(--coral);font-weight:700;">Cancelled</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+    <div class="adm-view" id="adv-shows">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+        <div style="font-family:var(--fh);font-weight:600;font-size:15px;color:var(--ink);">Trade Show Management</div>
+        <button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="showToast('Add show form')">+ Add Show</button>
+      </div>
+      <div class="adm-card" style="padding:0;overflow:hidden;"><div style="overflow-x:auto;"><table class="adm-table"><thead><tr><th>Show</th><th>Date</th><th>Industry</th><th>Listings</th><th>Actions</th></tr></thead><tbody>
+        <tr><td><div style="font-weight:600;font-size:13px;">Gulfood 2026</div><div style="font-size:11px;color:var(--muted);">Dubai, UAE</div></td><td style="font-size:12px;">17–21 Feb 2026</td><td style="font-size:12px;">Food & Bev</td><td style="font-size:13px;font-weight:600;color:var(--teal);">12</td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit show')">Edit</button><button class="adm-act-btn" href="show-detail.html?show=gulfood" style="color:var(--blue);">View</button></div></td></tr>
+        <tr><td><div style="font-weight:600;font-size:13px;">GITEX Global 2025</div><div style="font-size:11px;color:var(--muted);">Dubai, UAE</div></td><td style="font-size:12px;">13–17 Oct 2025</td><td style="font-size:12px;">Technology</td><td style="font-size:13px;font-weight:600;color:var(--teal);">8</td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit show')">Edit</button><button class="adm-act-btn" href="show-detail.html?show=gitex" style="color:var(--blue);">View</button></div></td></tr>
+        <tr><td><div style="font-weight:600;font-size:13px;">Arab Health 2026</div><div style="font-size:11px;color:var(--muted);">Dubai, UAE</div></td><td style="font-size:12px;">26–29 Jan 2026</td><td style="font-size:12px;">Healthcare</td><td style="font-size:13px;font-weight:600;color:var(--teal);">6</td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit show')">Edit</button><button class="adm-act-btn" href="show-detail.html?show=arabhealth" style="color:var(--blue);">View</button></div></td></tr>
+        <tr><td><div style="font-weight:600;font-size:13px;">Hannover Messe 2026</div><div style="font-size:11px;color:var(--muted);">Hannover, Germany</div></td><td style="font-size:12px;">22–26 Mar 2026</td><td style="font-size:12px;">Manufacturing</td><td style="font-size:13px;font-weight:600;color:var(--teal);">9</td><td><div style="display:flex;gap:4px;"><button class="adm-act-btn" onclick="showToast('Edit show')">Edit</button><button class="adm-act-btn" href="show-detail.html?show=hannover" style="color:var(--blue);">View</button></div></td></tr>
+      </tbody></table></div></div>
+    </div>
+    <div class="adm-view" id="adv-config">
+      <div class="adm-card">
+        <div class="adm-card-title">Platform Settings</div>
+        <div class="adm-toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--ink);">Maintenance mode</div><div style="font-size:11px;color:var(--muted);">Show maintenance page to all users</div></div><div class="toggle" onclick="this.classList.toggle('on');showToast('Maintenance toggled')"></div></div>
+        <div class="adm-toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--ink);">Require listing approval</div><div style="font-size:11px;color:var(--muted);">New listings go to review queue first</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Updated')"></div></div>
+        <div class="adm-toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--ink);">Allow Free plan signups</div><div style="font-size:11px;color:var(--muted);">Disable to force paid plan on signup</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Updated')"></div></div>
+        <div class="adm-toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--ink);">WhatsApp notifications (Twilio)</div><div style="font-size:11px;color:var(--muted);">Send match alerts via WhatsApp</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Updated')"></div></div>
+        <div class="adm-toggle-row"><div><div style="font-size:13px;font-weight:500;color:var(--ink);">Email alerts (SMTP)</div><div style="font-size:11px;color:var(--muted);">Send match and requirement alerts by email</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Updated')"></div></div>
+      </div>
+      <div class="adm-card">
+        <div class="adm-card-title">Manual Match Override</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.65;">Manually run the matching algorithm for a specific company.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;"><input type="text" placeholder="Company ID or email..." style="flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:13px;font-family:var(--fb);outline:none;min-width:160px;"/><button class="btn btn-teal" style="font-size:12px;flex-shrink:0;" onclick="showToast('Match triggered!')">Run Match</button></div>
+      </div>
+      <div class="adm-card" style="border-color:var(--coral);">
+        <div class="adm-card-title" style="color:var(--coral);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M10 3L1 17h18L10 3z"/><path d="M10 9v4M10 15v.5"/></svg> Danger Zone</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn" style="background:#fee2e2;color:var(--coral);font-size:12px;border:1px solid #fca5a5;" onclick="showToast('Would clear test data')">Clear Test Data</button><button class="btn" style="background:#fee2e2;color:var(--coral);font-size:12px;border:1px solid #fca5a5;" onclick="showToast('Would reset database')">Reset Database</button></div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ═════════════════════════════════════
+     AUTH MODAL
+═════════════════════════════════════ -->
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('admin' === 'dashboard' || 'admin' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'admin.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>

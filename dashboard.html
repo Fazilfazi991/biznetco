@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Biznecto — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:48px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"/>
+  </div>
+</div>
+
+
+<!-- ─── TOP NAV ─── -->
+<nav class="top-nav" id="topNav">
+  <a class="tn-logo" href="index.html" style="text-decoration:none; display:inline-flex; align-items:center;">
+    <img src="Biznecto_Logo.png" alt="Biznecto" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+  </a>
+  <div class="tn-tabs">
+    <a class="tn-tab " href="index.html" style="text-decoration:none; display:inline-block;">Home</a>
+    <a class="tn-tab " href="directory.html" style="text-decoration:none; display:inline-block;">Directory</a>
+    <a class="tn-tab " href="requirements.html" style="text-decoration:none; display:inline-block;">Requirements</a>
+    <a class="tn-tab " href="trade-shows.html" style="text-decoration:none; display:inline-block;">Trade Shows</a>
+    <a class="tn-tab " href="pricing.html" style="text-decoration:none; display:inline-block;">Pricing</a>
+    <a class="tn-tab " href="admin.html" style="text-decoration:none; color:rgba(255,165,0,0.7); display:inline-block;" title="Admin">Admin</a>
+  </div>
+  <div class="tn-right">
+    <a class="tn-login" id="loginBtn" href="auth.html?tab=login" style="text-decoration:none;">Log in</a>
+    <a class="tn-register" id="registerBtn" href="auth.html?tab=register" style="text-decoration:none;">List Free</a>
+    <div class="tn-avatar" id="tnAvatar" onclick="window.location.href='dashboard.html'" style="cursor:pointer; display:none;">AG</div>
+    <a class="tn-dash-btn" id="dashBtn" href="dashboard.html" style="text-decoration:none; display:none;">Dashboard →</a>
+  </div>
+</nav>
+
+<!-- ─── BOTTOM NAV ─── -->
+<nav class="b-nav">
+  <a class="bn-i " href="index.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 9.5L10 3l7 6.5V17H13v-4H7v4H3V9.5z"/></svg></span>Home
+  </a>
+  <a class="bn-i " href="directory.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="9" cy="9" r="5"/><path d="M16 16l-3.5-3.5"/></svg></span>Directory
+  </a>
+  <a class="bn-i " href="requirements.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h6M7 12h4"/></svg></span>Needs
+  </a>
+  <a class="bn-i " href="trade-shows.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg></span>Shows
+  </a>
+  <a class="bn-i " href="pricing.html" style="text-decoration:none;">
+    <span class="bn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="5" width="16" height="12" rx="1.5"/><path d="M6 5V3.5A1.5 1.5 0 017.5 2h5A1.5 1.5 0 0114 3.5V5"/></svg></span>Plans
+  </a>
+</nav>
+
+<div class="dash-layout">
+    <!-- Sidebar (desktop) -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="ds-logo"><div href="index.html" style="display:inline-flex;align-items:center;gap:0;cursor:pointer;margin-bottom:2px;">
+        <span style="background:var(--teal);color:#fff;padding:2px 6px;font-family:var(--fb);font-weight:900;font-size:13px;letter-spacing:.5px;border-radius:2px 0 0 2px;line-height:1.4;">BIZ</span><span style="color:#fff;font-family:var(--fb);font-weight:800;font-size:13px;letter-spacing:.5px;padding:2px 5px;border:1.5px solid rgba(255,255,255,0.18);border-left:none;border-radius:0 2px 2px 0;line-height:1.4;">NECTO</span>
+      </div><p>Client Dashboard</p></div>
+      <div class="ds-plan"><div class="ds-plan-lbl">Current Plan</div><div class="ds-plan-badge"><div class="ds-plan-dot" id="dsPlanDot"></div><span class="ds-plan-name" id="dsPlanName">Free</span></div><div class="ds-plan-up" onclick="dashView('upgrade')">Upgrade Plan →</div></div>
+      <nav class="ds-nav">
+        <div class="ds-sec">Main</div>
+        <button class="ds-item on" id="dni-overview" onclick="dashView('overview')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/></svg></span><span>Overview</span></button>
+        <button class="ds-item" id="dni-profile" onclick="dashView('profile')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="10" cy="8" r="2.5"/><path d="M5 16c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></span><span>My Profile</span></button>
+        <button class="ds-item" id="dni-products" onclick="dashView('products')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg></span><span>Products</span></button>
+        <button class="ds-item" id="dni-matches" onclick="dashView('matches')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M18 8A8 8 0 113.34 14"/><path d="M3 10V14H7"/></svg></span><span>My Matches</span><span class="ds-badge">3</span></button>
+        <div class="ds-sec">Visibility</div>
+        <button class="ds-item" id="dni-visibility" onclick="dashView('visibility')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M1 10s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="10" cy="10" r="3"/></svg></span><span>Listing Visibility</span></button>
+        <button class="ds-item" id="dni-upgrade" onclick="dashView('upgrade')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polygon points="10,2 12.9,7.6 19,8.5 14.5,12.9 15.6,19 10,16 4.4,19 5.5,12.9 1,8.5 7.1,7.6"/></svg></span><span>Plans & Upgrade</span></button>
+        <div class="ds-sec">Account</div>
+        <button class="ds-item" id="dni-settings" onclick="dashView('settings')"><span class="di-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="3"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4"/></svg></span><span>Settings</span></button>
+      </nav>
+      <div class="ds-bottom"><div class="ds-user"><div class="ds-avatar">AG</div><div class="ds-user-info"><p>AlphaGrain Foods</p><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="76171e1b131236171a061e171104171f18581713">[email&#160;protected]</a></span></div></div></div>
+    </aside>
+
+    <!-- Main -->
+    <div class="dash-main">
+      <div class="dash-topbar">
+        <div class="dtb-left"><h2 id="dtbTitle">Overview</h2><p id="dtbSub">Welcome back, Ahmed</p></div>
+        <div class="dtb-right"><div class="dtb-notif"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M6 10a4 4 0 018 0c0 4 2 6 2 6H4s2-2 2-6"/><path d="M8.5 18a1.5 1.5 0 003 0"/></svg><div class="notif-dot"></div></div><button class="dtb-btn" onclick="dashView('upgrade')">⭐ Upgrade</button></div>
+      </div>
+      <!-- Mobile nav -->
+      <div class="dash-mob-nav">
+        <button class="dmn-item on" onclick="dashView('overview',this)">Overview</button>
+        <button class="dmn-item" onclick="dashView('profile',this)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="10" cy="8" r="2.5"/><path d="M5 16c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg> Profile</button>
+        <button class="dmn-item" onclick="dashView('products',this)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg> Products</button>
+        <button class="dmn-item" onclick="dashView('matches',this)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M18 8A8 8 0 113.34 14"/><path d="M3 10V14H7"/></svg> Matches</button>
+        <button class="dmn-item" onclick="dashView('visibility',this)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M1 10s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="10" cy="10" r="3"/></svg> Visibility</button>
+        <button class="dmn-item" onclick="dashView('upgrade',this)"Plans</button>
+        <button class="dmn-item" onclick="dashView('settings',this)">Settings</button>
+      </div>
+      <div class="dash-content">
+
+        <!-- ── OVERVIEW ── -->
+        <div class="dview on" id="dv-overview">
+          <div class="plan-banner free" id="planBanner">
+            <div><div class="pb-badge free" id="pbBadge">FREE PLAN</div><div class="pb-title" id="pbTitle">You're on the Free plan</div><div class="pb-desc" id="pbDesc">Upgrade to Pro to unlock product listings, 5 matches, and featured placement.</div></div>
+            <div id="pbRight"><button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="dashView('upgrade')">Upgrade →</button></div>
+          </div>
+          <div class="dstats">
+            <div class="dstat"><div class="dstat-lbl">Profile Views</div><div class="dstat-val">48</div><div class="dstat-sub"><span class="up">↑ 12%</span> this week</div></div>
+            <div class="dstat amber"><div class="dstat-lbl">Matches</div><div class="dstat-val" id="dStatMatches">3</div><div class="dstat-sub" id="dStatMatchSub">Free: 1 visible</div></div>
+            <div class="dstat blue"><div class="dstat-lbl">Connect Clicks</div><div class="dstat-val">12</div><div class="dstat-sub"><span class="up">↑ 4</span> this week</div></div>
+            <div class="dstat ink"><div class="dstat-lbl">Products</div><div class="dstat-val" id="dStatProds">3</div><div class="dstat-sub" id="dStatProdSub">Hidden from buyers</div></div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-title">Profile Completion — <span style="color:var(--teal);font-family:var(--fh);">65%</span></div>
+            <div style="height:6px;background:var(--sand2);border-radius:3px;overflow:hidden;margin-bottom:14px;"><div style="height:100%;width:65%;background:var(--teal);border-radius:3px;"></div></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px;">
+              <span style="color:var(--green);">✓ Company info</span><span style="color:var(--green);">✓ Industry</span><span style="color:var(--green);">✓ Trade show</span>
+              <span style="color:var(--hint);">○ Logo</span><span style="color:var(--hint);">○ Products</span><span style="color:var(--hint);">○ WhatsApp</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="dcard">
+              <div class="dcard-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M6 10a4 4 0 018 0c0 4 2 5 2 5H4s2-1 2-5"/><path d="M8.5 18a1.5 1.5 0 003 0"/></svg> Recent Activity</div>
+              <div class="act-item"><div class="act-icon teal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M18 8A8 8 0 113.34 14"/><path d="M3 10V14H7"/></svg></div><div><div class="act-text">New match — MedSupply MENA</div><div class="act-time">2 hours ago</div></div></div>
+              <div class="act-item"><div class="act-icon blue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M1 10s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="10" cy="10" r="3"/></svg></div><div><div class="act-text">Profile viewed 8 times today</div><div class="act-time">Today</div></div></div>
+              <div class="act-item"><div class="act-icon amber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polygon points="10,2 12.9,7.6 19,8.5 14.5,12.9 15.6,19 10,16 4.4,19 5.5,12.9 1,8.5 7.1,7.6"/></svg></div><div><div class="act-text">Connect request from TechXports UAE</div><div class="act-time">Yesterday</div></div></div>
+              <div class="act-item"><div class="act-icon red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/></svg></div><div><div class="act-text">2 matches hidden — upgrade to unlock</div><div class="act-time">Yesterday</div></div></div>
+            </div>
+            <div class="dcard">
+              <div class="dcard-title">Quick Actions</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <button class="btn btn-outline btn-full" style="justify-content:flex-start;font-size:12px;" onclick="dashView('profile')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="10" cy="8" r="2.5"/><path d="M5 16c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg> Edit company profile</button>
+                <button class="btn btn-outline btn-full" style="justify-content:flex-start;font-size:12px;" onclick="dashView('products')">📦 Add a product</button>
+                <button class="btn btn-outline btn-full" style="justify-content:flex-start;font-size:12px;" onclick="dashView('matches')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M18 8A8 8 0 113.34 14"/><path d="M3 10V14H7"/></svg> View my matches</button>
+                <button class="btn btn-teal btn-full" style="font-size:12px;" onclick="dashView('upgrade')">⭐ Upgrade my plan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PROFILE ── -->
+        <div class="dview" id="dv-profile">
+          <div class="dcard">
+            <div class="dcard-title">Company Information</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="fg"><label>Company Name</label><input type="text" value="AlphaGrain Foods"/></div>
+              <div class="fg"><label>Website</label><input type="text" placeholder="https://alphagrain.ae"/></div>
+              <div class="fg"><label>Industry</label><select><option>Food & Beverage</option><option>Healthcare</option><option>Technology</option><option>Construction</option><option>Energy</option><option>Agriculture</option></select></div>
+              <div class="fg"><label>Your Role</label><select><option>Supplier / Exporter</option><option>Buyer / Importer</option><option>Distributor</option></select></div>
+              <div class="fg"><label>Country</label><select><option>UAE</option><option>Saudi Arabia</option><option>Germany</option><option>UK</option><option>USA</option></select></div>
+              <div class="fg"><label>City</label><input type="text" value="Dubai"/></div>
+              <div class="fg" style="grid-column:1/-1;"><label>Description</label><textarea>AlphaGrain Foods is a leading supplier of premium grain products and food commodities. Based in Dubai, specialising in bulk food supply for retail chains, hospitality, and food manufacturers.</textarea></div>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-title">Trade Show Presence</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="fg"><label>Primary Trade Show</label><select><option>Gulfood 2026</option><option>Arab Health 2026</option><option>GITEX 2025</option><option>ADIPEC 2025</option></select></div>
+              <div class="fg"><label>Booth Number</label><input type="text" placeholder="e.g. Hall 4, B-12"/></div>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-title">Contact Details <span style="font-size:11px;color:var(--muted);font-weight:400;">(Visible to Pro & Premium viewers)</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="fg"><label>Email</label><input type="email" value="ahmed@alphagrain.ae"/></div>
+              <div class="fg"><label>WhatsApp</label><input type="tel" value="+971 50 000 0000"/></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:4px;">
+            <button class="btn btn-outline">Discard</button>
+            <button class="btn btn-teal" onclick="showToast('✅ Profile saved!')">Save Changes</button>
+          </div>
+        </div>
+
+        <!-- ── PRODUCTS ── -->
+        <div class="dview" id="dv-products">
+          <div class="plan-banner free" id="prodBanner">
+            <div><div class="pb-badge free" id="prodBadge">FREE PLAN</div><div class="pb-title">Products hidden from buyers</div><div class="pb-desc">Upgrade to Pro to make your products searchable by buyers globally.</div></div>
+            <div><button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="dashView('upgrade')">Upgrade →</button></div>
+          </div>
+
+          <!-- How buyers find products — explanation card -->
+          <div class="dcard" style="background:linear-gradient(135deg,var(--ink),var(--ink2));border:none;margin-bottom:14px;">
+            <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+              <div style="font-size:32px;">🔍</div>
+              <div style="flex:1;">
+                <div style="font-family:var(--fh);font-weight:600;font-size:15px;color:#fff;margin-bottom:4px;">How buyers find your products</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.65;">When a buyer searches "organic honey" on Biznecto, they see a list of matching products — not company pages. Each product card shows your product name, MOQ, certifications, and a link to your company. <strong style="color:rgba(255,255,255,0.75);">Pro & Premium plans make your products searchable.</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dcard">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+              <div class="dcard-title" style="margin-bottom:0;">My Products <span style="font-size:11px;font-weight:400;color:var(--hint);" id="prodCountLabel">(3 of 3 free slots)</span></div>
+              <button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="openProdModal()">+ Add Product</button>
+            </div>
+
+            <!-- Product list view (full detail rows, not small cards) -->
+            <div id="prodList">
+
+              <!-- Product row 1 -->
+              <div class="prod-row" id="pr-1">
+                <div class="pr-emoji">🌾</div>
+                <div class="pr-info">
+                  <div class="pr-name">Wheat Flour 25kg</div>
+                  <div class="pr-meta">
+                    <span class="pr-chip">Category: Grains & Cereals</span>
+                    <span class="pr-chip">MOQ: 1 tonne</span>
+                    <span class="pr-chip">Pack: 25kg bag</span>
+                    <span class="pr-cert">✓ Halal</span>
+                    <span class="pr-cert">✓ ISO 22000</span>
+                  </div>
+                  <div class="pr-desc">Premium grade wheat flour suitable for bakeries, food manufacturers and bulk retail. Export ready with full documentation.</div>
+                </div>
+                <div class="pr-actions">
+                  <button class="pr-edit-btn" onclick="openEditProd(1)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M11 4l4 4L5 18H1v-4L11 4z"/></svg> Edit</button>
+                  <button class="pr-del-btn" onclick="deleteProd(1)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 6h14M8 6V4h4v2M5 6l1 12h8l1-12"/></svg></button>
+                </div>
+              </div>
+
+              <!-- Product row 2 -->
+              <div class="prod-row" id="pr-2">
+                <div class="pr-emoji">🍚</div>
+                <div class="pr-info">
+                  <div class="pr-name">Basmati Rice Premium</div>
+                  <div class="pr-meta">
+                    <span class="pr-chip">Category: Grains & Cereals</span>
+                    <span class="pr-chip">MOQ: 500kg</span>
+                    <span class="pr-chip">Pack: 50kg bag</span>
+                    <span class="pr-cert">✓ Halal</span>
+                    <span class="pr-cert">✓ Grade A</span>
+                  </div>
+                  <div class="pr-desc">Long grain aged basmati, ideal for retail packing and food service. Available in 25kg and 50kg export bags.</div>
+                </div>
+                <div class="pr-actions">
+                  <button class="pr-edit-btn" onclick="openEditProd(2)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M11 4l4 4L5 18H1v-4L11 4z"/></svg> Edit</button>
+                  <button class="pr-del-btn" onclick="deleteProd(2)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 6h14M8 6V4h4v2M5 6l1 12h8l1-12"/></svg></button>
+                </div>
+              </div>
+
+              <!-- Product row 3 -->
+              <div class="prod-row" id="pr-3">
+                <div class="pr-emoji">🫒</div>
+                <div class="pr-info">
+                  <div class="pr-name">Sunflower Oil</div>
+                  <div class="pr-meta">
+                    <span class="pr-chip">Category: Oils & Fats</span>
+                    <span class="pr-chip">MOQ: 200 units</span>
+                    <span class="pr-chip">Pack: 5L / 20L</span>
+                    <span class="pr-cert">✓ Halal</span>
+                    <span class="pr-cert">✓ HACCP</span>
+                  </div>
+                  <div class="pr-desc">Refined sunflower oil in 5L PET and 20L bulk containers. Suitable for retail, catering, and industrial food production.</div>
+                </div>
+                <div class="pr-actions">
+                  <button class="pr-edit-btn" onclick="openEditProd(3)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M11 4l4 4L5 18H1v-4L11 4z"/></svg> Edit</button>
+                  <button class="pr-del-btn" onclick="deleteProd(3)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M3 6h14M8 6V4h4v2M5 6l1 12h8l1-12"/></svg></button>
+                </div>
+              </div>
+
+            </div><!-- /prodList -->
+
+            <!-- Locked slots -->
+            <div id="prodLockedMsg" style="border:1.5px dashed var(--border);border-radius:10px;padding:16px;text-align:center;margin-top:10px;">
+              <div style="font-size:20px;margin-bottom:6px;">🔒</div>
+              <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;">Add more products with Pro</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">Free plan allows 3 products (hidden from buyers). Pro unlocks 10 visible products. Premium = unlimited.</div>
+              <button class="btn btn-teal" style="font-size:12px;padding:8px 16px;" onclick="dashView('upgrade')">Upgrade to Pro →</button>
+            </div>
+          </div>
+
+          <div style="background:var(--sand);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--muted);line-height:1.7;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 7v.5"/></svg> <strong style="color:var(--ink);">Tip:</strong> Buyers search Biznecto by product name, not company name. Add specific names like "Raw Sidr Honey 500g" not just "Honey". Include MOQ, pack size, and certifications — that's what buyers filter by.
+          </div>
+        </div>
+
+        <!-- ── MATCHES ── -->
+        <div class="dview" id="dv-matches">
+          <div class="plan-banner free" id="matchBanner"><div><div class="pb-badge free" id="matchBadge">FREE PLAN</div><div class="pb-title" id="matchBannerTitle">You can see 1 of 5 matches</div><div class="pb-desc" id="matchBannerDesc">Upgrade to Pro to unlock all 5 matches.</div></div><div><button class="btn btn-teal" style="font-size:12px;padding:8px 14px;" onclick="dashView('upgrade')">Unlock Matches</button></div></div>
+          <div class="match-card top">
+            <div class="mc-top"><div class="mc-score"><div class="pct">95</div><div class="lbl">pts</div></div><div class="mc-info"><h4>MedSupply MENA</h4><div class="mc-tags"><span class="tag">Healthcare</span><span class="tag">🇸🇦 Saudi Arabia</span><span class="tag">Arab Health</span></div><p>Medical equipment supplier · Riyadh · Looking for distributors</p></div></div>
+            <div style="display:flex;gap:8px;"><button class="btn btn-teal btn-full" style="font-size:12px;">Connect →</button></div>
+          </div>
+          <div class="match-card" style="position:relative;">
+            <div class="mc-top match-blur"><div class="mc-score"><div class="pct">82</div><div class="lbl">pts</div></div><div class="mc-info"><h4>TechXports UAE</h4><div class="mc-tags"><span class="tag">Technology</span><span class="tag">UAE</span></div><p>Electronics trader · Dubai</p></div></div>
+            <div style="position:absolute;inset:0;background:rgba(247,245,240,0.8);border-radius:var(--rm);display:flex;align-items:center;justify-content:center;"><button class="btn btn-blue" style="font-size:12px;" onclick="dashView('upgrade')">🔒 Upgrade to unlock</button></div>
+          </div>
+          <div style="background:var(--sand);border:1.5px dashed var(--border2);border-radius:var(--rm);padding:18px;text-align:center;margin-top:4px;">
+            <div style="font-size:28px;margin-bottom:8px;">🔒</div>
+            <div style="font-family:var(--fh);font-weight:600;font-size:15px;color:var(--ink);margin-bottom:6px;">3 More Matches Found</div>
+            <div style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Upgrade to Pro to unlock all matches, view full company profiles, and connect directly.</div>
+            <button class="btn btn-teal btn-full" onclick="dashView('upgrade')">Unlock All Matches →</button>
+          </div>
+        </div>
+
+        <!-- ── VISIBILITY ── -->
+        <div class="dview" id="dv-visibility">
+
+          <!-- Explainer card -->
+          <div class="dcard" style="background:linear-gradient(135deg,var(--ink),var(--ink2));border:none;margin-bottom:14px;">
+            <div style="font-family:var(--fh);font-weight:600;font-size:15px;color:#fff;margin-bottom:10px;">What does "Free viewer / Pro viewer / Premium viewer" mean?</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:7px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;">F</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;"><strong style="color:rgba(255,255,255,0.8);">Free viewer</strong> — Someone browsing Biznecto without a paid plan. They can see your company name, country, and trade show tags. Your products and contact are hidden from them.</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:7px;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--blue);flex-shrink:0;">P</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;"><strong style="color:rgba(255,255,255,0.8);">Pro viewer</strong> — A paid Pro subscriber browsing the directory. They can see your products and contact info <em style="color:rgba(255,255,255,0.4);">(only if your plan also has products/contact enabled)</em>.</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:7px;background:#ede9fe;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--purple);flex-shrink:0;">⭐</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;"><strong style="color:rgba(255,255,255,0.8);">Premium viewer</strong> — A Premium subscriber. They can see your full listing including products, contact, AND the contact details of buyer requirements.</div>
+              </div>
+            </div>
+            <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.3);">Think of it like a two-sided lock: both the <strong style="color:rgba(255,255,255,0.5);">viewer's plan</strong> and <strong style="color:rgba(255,255,255,0.5);">your plan</strong> determine what gets shown. If your plan doesn't have products enabled, even a Premium viewer won't see them.</div>
+          </div>
+
+          <div class="dcard" style="padding:0;overflow:hidden;">
+            <div style="padding:14px 16px;border-bottom:1px solid var(--border);">
+              <div style="font-family:var(--fh);font-weight:600;font-size:14px;margin-bottom:3px;">What each plan can see on your listing</div>
+              <div style="font-size:12px;color:var(--muted);">Your current plan: <strong id="visCurrentPlan" style="color:var(--ink);">Free</strong> · <span style="color:var(--teal);cursor:pointer;" onclick="dashView('upgrade')">Upgrade to unlock more →</span></div>
+            </div>
+            <div style="overflow-x:auto;">
+            <table class="vis-table">
+              <thead>
+                <tr>
+                  <th>What they can see on your profile</th>
+                  <th>Free visitor</th>
+                  <th class="vt-hl">Pro visitor</th>
+                  <th>Premium visitor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Company name & country</td><td><span class="vtick">✓</span></td><td class="vt-hl"><span class="vtick">✓</span></td><td><span class="vtick">✓</span></td></tr>
+                <tr><td>Industry & trade show tags</td><td><span class="vtick">✓</span></td><td class="vt-hl"><span class="vtick">✓</span></td><td><span class="vtick">✓</span></td></tr>
+                <tr><td>Company description</td><td><span class="vtick">✓</span></td><td class="vt-hl"><span class="vtick">✓</span></td><td><span class="vtick">✓</span></td></tr>
+                <tr>
+                  <td>
+                    <div>Product catalogue</div>
+                    <div style="font-size:10px;color:var(--hint);margin-top:2px;">Requires your plan to have products enabled</div>
+                  </td>
+                  <td><span class="vcross">✗</span></td>
+                  <td class="vt-hl"><span class="vtick" id="vt-prod-pro">✓</span></td>
+                  <td><span class="vtick">✓</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>Contact email & WhatsApp</div>
+                    <div style="font-size:10px;color:var(--hint);margin-top:2px;">Your contact from your profile settings</div>
+                  </td>
+                  <td><span class="vcross">✗</span></td>
+                  <td class="vt-hl"><span class="vtick">✓</span></td>
+                  <td><span class="vtick">✓</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>Buyer requirement contacts</div>
+                    <div style="font-size:10px;color:var(--hint);margin-top:2px;">Phone/email of buyers who posted needs</div>
+                  </td>
+                  <td><span class="vcross">✗</span></td>
+                  <td class="vt-hl"><span class="vcross">✗</span></td>
+                  <td><span class="vtick">✓</span></td>
+                </tr>
+                <tr>
+                  <td>Your match results</td>
+                  <td style="font-size:11px;color:var(--amber);font-weight:600;">1 match</td>
+                  <td class="vt-hl" style="font-size:11px;color:var(--blue);font-weight:600;">5 matches</td>
+                  <td style="font-size:11px;color:var(--green);font-weight:600;">10+ matches</td>
+                </tr>
+                <tr>
+                  <td>Priority in search / directory</td>
+                  <td><span class="vcross">✗</span></td>
+                  <td class="vt-hl" style="font-size:11px;color:var(--blue);font-weight:600;">Featured</td>
+                  <td style="font-size:11px;color:var(--green);font-weight:600;">Top placement</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="dcard" style="margin-top:14px;">
+            <div class="dcard-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M1 10s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="10" cy="10" r="3"/></svg> Visibility Toggles</div>
+            <div class="toggle-row"><div class="toggle-info"><p>Show company in directory</p><span>Your listing appears in the main directory to all visitors</span></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Visibility updated')"></div></div>
+            <div class="toggle-row"><div class="toggle-info"><p>Accept automatic matches</p><span>Allow Biznecto's algorithm to match you with relevant buyers</span></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Matching updated')"></div></div>
+            <div class="toggle-row"><div class="toggle-info"><p>Show in product search results</p><span id="prodToggleNote" style="color:var(--coral);">Requires Pro or Premium plan</span></div><div class="toggle" id="prodSearchToggle" onclick="handleProdToggle()"></div></div>
+            <div class="toggle-row"><div class="toggle-info"><p>Notify me of new requirements in my category</p><span>Get WhatsApp/email alerts when a buyer posts a relevant need</span></div><div class="toggle on" onclick="this.classList.toggle('on');showToast('Notification updated')"></div></div>
+          </div>
+        </div>
+
+        <!-- ── UPGRADE ── -->
+        <div class="dview" id="dv-upgrade">
+          <div style="text-align:center;margin-bottom:24px;"><div style="font-family:var(--fh);font-weight:700;font-size:22px;color:var(--ink);margin-bottom:6px;letter-spacing:-.2px;">Choose your plan</div><div style="font-size:14px;color:var(--muted);">Unlock more visibility, matches, and business</div></div>
+          <div class="plans-grid" id="plansGrid">
+            <div class="plan-opt curr" id="po-free"><div class="curr-lbl" id="cl-free">Current Plan</div><div class="po-tier">Free</div><div class="po-price">AED 0 <span>/ mo</span></div><p class="po-desc">Get listed and start getting discovered</p><ul class="po-feats"><li><span class="ck">✓</span>Basic listing</li><li><span class="ck">✓</span>1 match visible</li><li><span class="cx">✗</span><span style="color:var(--muted)">Products visible</span></li><li><span class="cx">✗</span><span style="color:var(--muted)">Contact details shown</span></li></ul><button class="po-btn po-btn-curr" disabled>Active Plan</button></div>
+            <div class="plan-opt pop" id="po-pro"><div class="pop-lbl" id="pl-pro">Most Popular</div><div class="po-tier">Pro</div><div class="po-price">AED 299 <span>/ mo</span></div><p class="po-desc">For exhibitors ready to grow real connections</p><ul class="po-feats"><li><span class="ck">✓</span>Featured listing</li><li><span class="ck">✓</span><strong>5 match results</strong></li><li><span class="ck">✓</span>Products visible (up to 10)</li><li><span class="ck">✓</span>Respond to requirements</li><li><span class="ck">✓</span>Contact details shown</li></ul><button class="po-btn po-btn-teal" onclick="selectPlan('pro')">Upgrade to Pro</button></div>
+            <div class="plan-opt" id="po-premium"><div class="po-tier">Premium</div><div class="po-price">AED 999 <span>/ mo</span></div><p class="po-desc">Full access including requirement contact details</p><ul class="po-feats"><li><span class="ck">✓</span>Everything in Pro</li><li><span class="ck">✓</span><strong>10+ matches</strong></li><li><span class="ck">✓</span>Unlimited products</li><li><span class="ck">✓</span>Full contact on requirements</li><li><span class="ck">✓</span>Monthly leads report</li></ul><button class="po-btn po-btn-navy" onclick="selectPlan('premium')">Get Premium</button></div>
+          </div>
+        </div>
+
+        <!-- ── SETTINGS ── -->
+        <div class="dview" id="dv-settings">
+          <div class="dcard">
+            <div class="dcard-title">Account Details</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="fg"><label>Full Name</label><input type="text" value="Ahmed Al Mansouri"/></div>
+              <div class="fg"><label>Email</label><input type="email" value="ahmed@alphagrain.ae"/></div>
+              <div class="fg"><label>Password</label><input type="password" value="••••••••"/></div>
+              <div class="fg"><label>Language</label><select><option>English</option><option>Arabic</option></select></div>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M6 10a4 4 0 018 0c0 4 2 5 2 5H4s2-1 2-5"/><path d="M8.5 18a1.5 1.5 0 003 0"/></svg> Notifications</div>
+            <div class="toggle-row"><div class="toggle-info"><p>New match found</p><span>Get notified when a new match is available</span></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+            <div class="toggle-row"><div class="toggle-info"><p>New requirement posted</p><span>Alerts for requirements in your category</span></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+            <div class="toggle-row"><div class="toggle-info"><p>WhatsApp notifications</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+          </div>
+          <div class="dcard" style="border-color:var(--coral);">
+            <div class="dcard-title" style="color:var(--coral);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"  style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M10 3L1 17h18L10 3z"/><path d="M10 9v4M10 15v.5"/></svg> Danger Zone</div>
+            <button class="btn" style="background:#fee2e2;color:var(--coral);font-size:12px;" onclick="showToast('Account deletion would be confirmed')">Delete My Account</button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:4px;">
+            <button class="btn btn-teal" onclick="showToast('✅ Settings saved!')">Save Settings</button>
+            <button class="btn btn-outline" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+
+      </div><!-- /dash-content -->
+    </div><!-- /dash-main -->
+  </div><!-- /dash-layout -->
+
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-sheet" style="position:relative;">
+    <button class="ms-close" onclick="closeReqModal()">✕</button>
+    <div class="msh"></div>
+    <div class="ms-title">Post a Requirement</div>
+    <div class="ms-sub">Tell suppliers what you need. Get quotes fast.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Requirement Title</label>
+        <input type="text" placeholder="e.g. 500kg Raw Organic Honey" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Category</label>
+          <select style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;background:#fff;appearance:none;"><option>Food & Beverage</option><option>Agriculture</option></select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Quantity</label>
+          <input type="text" placeholder="e.g. 500" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;" />
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">Details</label>
+        <textarea rows="4" placeholder="Describe quality, packaging, target price, delivery terms..." style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:var(--fb);font-size:14px;font-weight:500;outline:none;resize:none;"></textarea>
+      </div>
+      <button class="btn btn-teal" style="width:100%;padding:14px;font-size:15px;justify-content:center;margin-top:8px;" onclick="closeReqModal(); showToast('Requirement posted successfully!')">Post Requirement →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash === '#post') {
+        openReqModal();
+    }
+    
+    // Auth Check
+    if ('dashboard' === 'dashboard' || 'dashboard' === 'admin') {
+        if(localStorage.getItem('biz_logged_in') !== 'true') {
+            window.location.href = 'auth.html?next=' + 'dashboard.html' + '&tab=login';
+        }
+    }
+    // Auth specific logic executed below components since they are separated.
+});
+</script>
+</body>
+</html>
