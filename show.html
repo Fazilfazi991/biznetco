@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Exhibition Detail — Biznecto</title>
+<meta name="description" content="Explore exhibition details, find suppliers, and post requirements on Biznecto."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─── */
+:root{
+  --ink:#0a1f44;--ink2:#0d2654;--ink3:#1a3a6b;
+  --teal:#00b89c;--teal-d:#009e87;--teal-gl:rgba(0,184,156,0.10);--teal-br:rgba(0,184,156,0.22);
+  --amber:#f59e0b;--coral:#ef4444;--blue:#1a56db;--purple:#7c3aed;--green:#16a34a;
+  --white:#fff;--sand:#f5f7fa;--sand2:#eaecf2;
+  --border:#dde2ed;--border2:#c6cedd;
+  --body:#3d4f6a;--muted:#617090;--hint:#8fa0bc;
+  --fh:'Fraunces',Georgia,serif;--fb:'Plus Jakarta Sans',system-ui,sans-serif;
+  --r:8px;--rm:14px;--rl:20px;--rx:28px;
+  --sh:0 2px 12px rgba(10,31,68,0.08);--shh:0 12px 40px rgba(10,31,68,0.13);
+  --show-color:#16a34a;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);color:var(--body);background:#f5f7fa;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ─── PAGE TRANSITION OVERLAY ─── */
+#page-transition{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+#page-transition.visible{opacity:1;pointer-events:all;}
+.pt-logo{
+  display:inline-flex;align-items:center;gap:0;
+  opacity:0;transform:scale(0.9);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1) 0.1s;
+}
+#page-transition.visible .pt-logo{opacity:1;transform:scale(1);}
+.pt-biz{background:var(--teal);color:#fff;padding:6px 12px;font-family:var(--fb);font-weight:900;font-size:22px;letter-spacing:.5px;border-radius:4px 0 0 4px;line-height:1.4;}
+.pt-necto{color:#fff;font-family:var(--fb);font-weight:800;font-size:22px;letter-spacing:.5px;padding:6px 10px;border:2px solid rgba(255,255,255,0.25);border-left:none;border-radius:0 4px 4px 0;line-height:1.4;}
+
+/* ─── BODY FADE IN ─── */
+body{animation:bodyFadeIn 0.4s ease both;}
+@keyframes bodyFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ─── TOP NAV ─── */
+.top-nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;height:58px;
+  background:rgba(10,31,68,0.97);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+}
+.tn-logo{font-family:var(--fb);font-weight:800;font-size:18px;color:#fff;text-decoration:none;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:0;}
+.tn-logo .biz{background:var(--teal);color:#fff;padding:3px 7px;border-radius:3px 0 0 3px;font-size:15px;}
+.tn-logo .necto{border:1.5px solid rgba(255,255,255,0.2);border-left:none;padding:3px 7px;border-radius:0 3px 3px 0;font-size:15px;}
+.tn-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);font-size:12px;font-weight:500;cursor:pointer;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);transition:all .15s;background:transparent;font-family:var(--fb);}
+.tn-back:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.06);}
+.tn-right{display:flex;align-items:center;gap:8px;}
+.tn-cta{font-size:12px;font-weight:600;color:#fff;background:var(--teal);padding:7px 14px;border-radius:6px;cursor:pointer;font-family:var(--fb);border:none;transition:background .15s;white-space:nowrap;}
+.tn-cta:hover{background:var(--teal-d);}
+
+/* ─── HERO ─── */
+.show-hero{
+  padding-top:58px;
+  background:var(--show-color);
+  position:relative;
+  overflow:hidden;
+  min-height:300px;
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.07) 0%, transparent 60%),
+    linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px);
+  background-size:100% 100%, 44px 44px, 44px 44px;
+  pointer-events:none;
+}
+.hero-inner{max-width:940px;margin:0 auto;padding:36px 20px 40px;position:relative;z-index:2;}
+.hero-breadcrumb{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;color:rgba(255,255,255,0.55);
+  margin-bottom:24px;
+}
+.hero-breadcrumb span{color:rgba(255,255,255,0.85);}
+.hero-icon-wrap{
+  width:72px;height:72px;border-radius:18px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(8px);
+  border:1.5px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;margin-bottom:18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.15);
+}
+.hero-name{
+  font-family:var(--fh);font-weight:700;
+  font-size:clamp(26px,5vw,42px);
+  color:#fff;margin-bottom:14px;
+  letter-spacing:-.4px;line-height:1.15;
+}
+.hero-meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.hero-meta-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.18);
+  padding:5px 12px;border-radius:100px;
+  backdrop-filter:blur(4px);
+}
+.hero-meta-chip svg{flex-shrink:0;opacity:0.7;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-badge{
+  font-size:11px;font-weight:600;
+  padding:4px 12px;border-radius:100px;
+  background:rgba(255,255,255,0.18);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.22);
+}
+.hero-badge.industry{background:rgba(0,0,0,0.2);border-color:rgba(0,0,0,0.1);}
+
+/* ─── COUNTDOWN ─── */
+.countdown-bar{
+  background:rgba(0,0,0,0.18);
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding:12px 20px;
+  position:relative;z-index:2;
+}
+.countdown-inner{max-width:940px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.countdown-label{font-size:11px;color:rgba(255,255,255,0.5);font-weight:500;}
+.countdown-units{display:flex;gap:12px;}
+.cu{text-align:center;}
+.cu-val{font-family:var(--fh);font-weight:700;font-size:22px;color:#fff;line-height:1;}
+.cu-lbl{font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.8px;margin-top:2px;}
+.countdown-sep{font-size:20px;color:rgba(255,255,255,0.3);font-weight:300;margin-top:-4px;}
+.countdown-past{font-size:12px;color:rgba(255,255,255,0.6);font-style:italic;}
+
+/* ─── EXHIBITING CTA STRIP ─── */
+.exhibiting-strip{
+  background:var(--ink);
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.exhibiting-strip-inner{max-width:940px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.es-text .es-title{font-family:var(--fh);font-weight:600;font-size:14px;color:#fff;margin-bottom:2px;}
+.es-text .es-sub{font-size:11px;color:rgba(255,255,255,0.4);}
+
+/* ─── MAIN LAYOUT ─── */
+.show-main{max-width:940px;margin:0 auto;padding:20px 20px 60px;display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:768px){.show-main{grid-template-columns:1fr 300px;gap:20px;}}
+
+/* ─── CARDS ─── */
+.sc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:16px;}
+.sc:last-child{margin-bottom:0;}
+.sc-title{font-family:var(--fh);font-weight:600;font-size:17px;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.sc-title svg{color:var(--teal);}
+
+/* ─── STATS GRID ─── */
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+@media(min-width:480px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+.stat-box{border-radius:12px;padding:14px;text-align:center;}
+.stat-box.light{background:var(--sand);}
+.stat-box.accent{background:var(--teal-gl);border:1px solid var(--teal-br);}
+.stat-lbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--hint);margin-bottom:6px;}
+.stat-box.accent .stat-lbl{color:var(--teal-d);}
+.stat-val{font-family:var(--fh);font-weight:700;font-size:15px;color:var(--ink);line-height:1.2;}
+
+/* ─── HIGHLIGHTS ─── */
+.highlight-list{display:flex;flex-direction:column;gap:0;}
+.hl-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+.hl-item:last-child{border-bottom:none;padding-bottom:0;}
+.hl-dot{
+  width:28px;height:28px;border-radius:8px;
+  background:var(--teal-gl);border:1px solid var(--teal-br);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--teal);flex-shrink:0;margin-top:1px;
+  font-size:13px;font-weight:700;
+}
+.hl-text{font-size:14px;color:var(--body);line-height:1.55;padding-top:4px;}
+
+/* ─── SUPPLIER SECTION ─── */
+.supplier-search-row{display:flex;gap:8px;margin-bottom:14px;}
+.supplier-search-row input{flex:1;border:1.5px solid var(--border);border-radius:9px;padding:10px 13px;font-family:var(--fb);font-size:13px;color:var(--ink);outline:none;min-height:42px;transition:border-color .15s;}
+.supplier-search-row input:focus{border-color:var(--teal);}
+.supplier-search-row button{background:var(--teal);color:#fff;border:none;padding:0 16px;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);min-height:42px;white-space:nowrap;transition:background .15s;}
+.supplier-search-row button:hover{background:var(--teal-d);}
+.supplier-card{
+  display:flex;align-items:center;gap:12px;
+  padding:12px;background:var(--sand);border-radius:10px;
+  margin-bottom:8px;transition:all .15s;cursor:pointer;
+}
+.supplier-card:hover{background:var(--sand2);}
+.supplier-avatar{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fh);font-weight:700;font-size:12px;color:#fff;flex-shrink:0;
+}
+.supplier-info{flex:1;min-width:0;}
+.supplier-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.supplier-meta{font-size:11px;color:var(--muted);}
+.supplier-card-locked{filter:blur(4px);user-select:none;pointer-events:none;}
+.badge-prem{background:#ede9fe;color:#7c3aed;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;}
+.badge-pro{background:#dbeafe;color:#1a56db;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;}
+.badge-free{background:var(--sand2);color:var(--hint);font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;}
+
+/* ─── REQUIREMENT CTA ─── */
+.req-cta{
+  background:linear-gradient(135deg, var(--ink), var(--ink2));
+  border-radius:16px;padding:24px;text-align:center;
+}
+.req-cta-icon{font-size:32px;margin-bottom:12px;}
+.req-cta h3{font-family:var(--fh);font-weight:600;font-size:18px;color:#fff;margin-bottom:8px;}
+.req-cta p{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:18px;line-height:1.65;}
+.req-cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+
+/* ─── SIDEBAR ─── */
+.sidebar{display:flex;flex-direction:column;gap:16px;}
+.sb-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;}
+.sb-card-title{font-family:var(--fh);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.sb-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+.sb-row:last-child{margin-bottom:0;}
+.sb-icon{width:32px;height:32px;border-radius:8px;background:var(--sand);display:flex;align-items:center;justify-content:center;color:var(--hint);flex-shrink:0;}
+.sb-text{flex:1;min-width:0;}
+.sb-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--hint);margin-bottom:2px;}
+.sb-val{font-size:13px;font-weight:500;color:var(--ink);word-break:break-word;}
+.sb-val a{color:var(--blue);text-decoration:none;}
+.sb-val a:hover{text-decoration:underline;}
+.sb-action-btn{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;border-radius:10px;border:1.5px solid var(--border);
+  background:#fff;cursor:pointer;font-family:var(--fb);
+  font-size:13px;font-weight:600;color:var(--ink);
+  margin-bottom:8px;transition:all .15s;width:100%;text-align:left;
+}
+.sb-action-btn:hover{border-color:var(--teal);background:var(--teal-gl);}
+.sb-action-btn:last-child{margin-bottom:0;}
+.sb-action-btn.primary{background:var(--teal);border-color:var(--teal);color:#fff;}
+.sb-action-btn.primary:hover{background:var(--teal-d);}
+.sb-action-btn .lbl{display:flex;flex-direction:column;gap:2px;}
+.sb-action-btn .lbl small{font-size:10px;font-weight:400;color:rgba(255,255,255,0.6);}
+.sb-action-btn.primary .lbl small{color:rgba(255,255,255,0.6);}
+.sb-action-btn:not(.primary) .lbl small{color:var(--muted);}
+
+/* related shows */
+.related-show{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all .15s;}
+.related-show:last-child{border-bottom:none;padding-bottom:0;}
+.related-show:hover .rs-name{color:var(--teal);}
+.rs-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.rs-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;transition:color .15s;}
+.rs-meta{font-size:11px;color:var(--muted);}
+.rs-arr{color:var(--hint);margin-left:auto;font-size:14px;}
+
+/* ─── BUTTONS ─── */
+.btn{font-family:var(--fb);font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.btn-teal{background:var(--teal);color:#fff;}
+.btn-teal:hover{background:var(--teal-d);}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--ink);}
+.btn-ghost{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.14);}
+.btn-ghost:hover{background:rgba(255,255,255,0.14);}
+
+/* ─── FOOTER ─── */
+.show-footer{
+  background:var(--ink);
+  padding:24px 20px;
+  text-align:center;
+}
+.footer-inner{max-width:940px;margin:0 auto;}
+.footer-logo{display:inline-flex;align-items:center;gap:0;margin-bottom:10px;}
+.footer-logo .biz{background:var(--teal);color:#fff;padding:3px 7px;border-radius:3px 0 0 3px;font-family:var(--fb);font-weight:900;font-size:14px;}
+.footer-logo .necto{border:1.5px solid rgba(255,255,255,0.2);border-left:none;padding:3px 7px;border-radius:0 3px 3px 0;font-family:var(--fb);font-weight:800;font-size:14px;color:#fff;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.3);}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;font-size:13px;font-weight:500;padding:11px 20px;border-radius:10px;z-index:1000;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;font-family:var(--fb);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:767px){
+  .sidebar{display:none;}
+  .mobile-sidebar{display:block;}
+}
+@media(min-width:768px){
+  .mobile-sidebar{display:none;}
+  .sidebar{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<!-- Page Transition Overlay -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <span class="pt-biz">BIZ</span>
+    <span class="pt-necto">NECTO</span>
+  </div>
+</div>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a class="tn-logo" href="javascript:void(0)" onclick="navigateTo('index.html')">
+    <span class="biz">BIZ</span><span class="necto">NECTO</span>
+  </a>
+  <div class="tn-right">
+    <button class="tn-back" onclick="navigateTo('index.html#tradeshows')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M13 4l-6 6 6 6"/></svg>
+      All Shows
+    </button>
+    <button class="tn-cta" onclick="showToast('Opening registration...')">List My Company</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="show-hero" id="showHero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M3 10l7-7 7 7"/><path d="M7 20V10h6v10"/></svg>
+      Biznecto
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="12" height="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 4l6 6-6 6"/></svg>
+      Trade Shows
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="12" height="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 4l6 6-6 6"/></svg>
+      <span id="heroShowName">Loading...</span>
+    </div>
+    <div class="hero-icon-wrap">
+      <span id="heroEmoji" style="font-size:36px;">🍽️</span>
+    </div>
+    <h1 class="hero-name" id="heroTitle">Loading Exhibition...</h1>
+    <div class="hero-meta-row">
+      <div class="hero-meta-chip" id="heroDate">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg>
+        <span id="heroDateText"></span>
+      </div>
+      <div class="hero-meta-chip" id="heroLoc">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M10 2a6 6 0 00-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 00-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
+        <span id="heroLocText"></span>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge industry" id="heroBadgeIndustry"></span>
+      <span class="hero-badge" id="heroBadgeFreq"></span>
+    </div>
+  </div>
+  <div class="countdown-bar">
+    <div class="countdown-inner">
+      <span class="countdown-label">Show opens in</span>
+      <div class="countdown-units" id="countdownUnits">
+        <div class="cu"><div class="cu-val" id="cdDays">--</div><div class="cu-lbl">Days</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="cu"><div class="cu-val" id="cdHours">--</div><div class="cu-lbl">Hrs</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="cu"><div class="cu-val" id="cdMins">--</div><div class="cu-lbl">Min</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="cu"><div class="cu-val" id="cdSecs">--</div><div class="cu-lbl">Sec</div></div>
+      </div>
+      <span class="countdown-past" id="countdownPast" style="display:none;"></span>
+    </div>
+  </div>
+</section>
+
+<!-- EXHIBITING STRIP -->
+<div class="exhibiting-strip">
+  <div class="exhibiting-strip-inner">
+    <div class="es-text">
+      <div class="es-title">Exhibiting at this show?</div>
+      <div class="es-sub">Get listed on Biznecto and connect with buyers sourcing from this show</div>
+    </div>
+    <button class="btn btn-teal" onclick="showToast('Opening registration...')">List My Company →</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="show-main">
+  <!-- LEFT / MAIN COLUMN -->
+  <div class="main-col">
+
+    <!-- About -->
+    <div class="sc">
+      <div class="sc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 7v.5"/></svg>
+        About this Show
+      </div>
+      <p id="showDesc" style="font-size:14px;color:var(--body);line-height:1.85;margin-bottom:20px;"></p>
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-box light">
+          <div class="stat-lbl">Scale</div>
+          <div class="stat-val" id="statSize"></div>
+        </div>
+        <div class="stat-box accent">
+          <div class="stat-lbl">On Biznecto</div>
+          <div class="stat-val" id="statSuppliers"></div>
+        </div>
+        <div class="stat-box light">
+          <div class="stat-lbl">Frequency</div>
+          <div class="stat-val" id="statFreq"></div>
+        </div>
+        <div class="stat-box light">
+          <div class="stat-lbl">Official Site</div>
+          <div class="stat-val"><a id="statWebsite" href="#" target="_blank" style="color:var(--blue);text-decoration:none;font-size:13px;"></a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="sc">
+      <div class="sc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="10,2 12.4,7.5 18.5,8.2 14.1,12.3 15.4,18.3 10,15.3 4.6,18.3 5.9,12.3 1.5,8.2 7.6,7.5"/></svg>
+        What's at this Show
+      </div>
+      <div class="highlight-list" id="highlightList"></div>
+    </div>
+
+    <!-- Suppliers -->
+    <div class="sc">
+      <div class="sc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M3 7l7-4 7 4v9l-7 4-7-4V7z"/><path d="M10 3v13M3 7l7 4 7-4"/></svg>
+        Find Suppliers from this Show
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.65;">Browse companies on Biznecto that exhibit at this show. Search by product to find specific suppliers.</p>
+      <div class="supplier-search-row">
+        <input type="text" id="supplierSearch" placeholder="Search a product e.g. organic honey..." />
+        <button onclick="handleSupplierSearch()">Search</button>
+      </div>
+      <!-- Supplier Cards -->
+      <div class="supplier-card" onclick="showToast('Viewing AlphaFoods GmbH...')">
+        <div class="supplier-avatar" style="background:#16a34a;">AF</div>
+        <div class="supplier-info">
+          <div class="supplier-name">AlphaFoods GmbH <span class="badge-prem">⭐ Premium</span></div>
+          <div class="supplier-meta">🇩🇪 Germany · Organic food manufacturer</div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="var(--hint)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 4l6 6-6 6"/></svg>
+      </div>
+      <div class="supplier-card" onclick="showToast('Viewing NaturaBee GmbH...')">
+        <div class="supplier-avatar" style="background:#f59e0b;">NB</div>
+        <div class="supplier-info">
+          <div class="supplier-name">NaturaBee GmbH <span class="badge-prem">⭐ Premium</span></div>
+          <div class="supplier-meta">🇩🇪 Germany · Honey &amp; natural foods</div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="14" height="14" stroke="var(--hint)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 4l6 6-6 6"/></svg>
+      </div>
+      <div class="supplier-card supplier-card-locked">
+        <div class="supplier-avatar" style="background:#9eaab6;">██</div>
+        <div class="supplier-info">
+          <div class="supplier-name">████████ Trading</div>
+          <div class="supplier-meta">🌍 ████████ · ████</div>
+        </div>
+      </div>
+      <button class="btn btn-outline" style="width:100%;margin-top:12px;justify-content:center;" onclick="navigateTo('index.html#directory')">Browse All Exhibitors →</button>
+    </div>
+
+    <!-- Requirement CTA -->
+    <div class="req-cta">
+      <div class="req-cta-icon">📋</div>
+      <h3>Need something from this show?</h3>
+      <p>Post a requirement and let exhibitors at this show come to you with quotes.</p>
+      <div class="req-cta-btns">
+        <button class="btn btn-teal" onclick="showToast('Opening requirement form...')">+ Post a Requirement</button>
+        <button class="btn btn-ghost" onclick="showToast('Opening registration...')">List My Company</button>
+      </div>
+    </div>
+
+    <!-- Mobile Sidebar (shown below content on mobile) -->
+    <div class="mobile-sidebar" style="margin-top:16px;">
+      <div class="sb-card">
+        <div class="sb-card-title">Quick Actions</div>
+        <button class="sb-action-btn primary" onclick="showToast('Opening registration...')">
+          <div class="lbl">
+            <span>List My Company</span>
+            <small>Get matched with buyers at this show</small>
+          </div>
+          →
+        </button>
+        <button class="sb-action-btn" onclick="navigateTo('index.html#directory')">
+          <div class="lbl">
+            <span>Browse Exhibitors</span>
+            <small>See all companies from this show</small>
+          </div>
+          →
+        </button>
+        <button class="sb-action-btn" onclick="showToast('Opening requirement form...')">
+          <div class="lbl">
+            <span>Post a Requirement</span>
+            <small>Let suppliers come to you</small>
+          </div>
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="sidebar">
+    <!-- Details -->
+    <div class="sb-card">
+      <div class="sb-card-title">Show Details</div>
+      <div class="sb-row">
+        <div class="sb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M6 2v4M14 2v4M2 9h16"/></svg>
+        </div>
+        <div class="sb-text">
+          <div class="sb-lbl">Dates</div>
+          <div class="sb-val" id="sbDate"></div>
+        </div>
+      </div>
+      <div class="sb-row">
+        <div class="sb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M10 2a6 6 0 00-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 00-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
+        </div>
+        <div class="sb-text">
+          <div class="sb-lbl">Venue</div>
+          <div class="sb-val" id="sbVenue"></div>
+        </div>
+      </div>
+      <div class="sb-row">
+        <div class="sb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M1 5l6-3 6 3 6-3v14l-6 3-6-3-6 3V5z"/><path d="M7 2v14M13 5v14"/></svg>
+        </div>
+        <div class="sb-text">
+          <div class="sb-lbl">Industry</div>
+          <div class="sb-val" id="sbIndustry"></div>
+        </div>
+      </div>
+      <div class="sb-row">
+        <div class="sb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/></svg>
+        </div>
+        <div class="sb-text">
+          <div class="sb-lbl">Frequency</div>
+          <div class="sb-val" id="sbFreq"></div>
+        </div>
+      </div>
+      <div class="sb-row">
+        <div class="sb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 4h12v12H4z"/><path d="M9 12l-2-2 2-2M11 8l2 2-2 2"/></svg>
+        </div>
+        <div class="sb-text">
+          <div class="sb-lbl">Official Website</div>
+          <div class="sb-val"><a id="sbWebsite" href="#" target="_blank"></a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="sb-card">
+      <div class="sb-card-title">Quick Actions</div>
+      <button class="sb-action-btn primary" onclick="showToast('Opening registration...')">
+        <div class="lbl">
+          <span>List My Company</span>
+          <small>Get matched with buyers at this show</small>
+        </div>
+        →
+      </button>
+      <button class="sb-action-btn" onclick="navigateTo('index.html#directory')">
+        <div class="lbl">
+          <span>Browse Exhibitors</span>
+          <small>See all companies from this show</small>
+        </div>
+        →
+      </button>
+      <button class="sb-action-btn" onclick="showToast('Opening requirement form...')">
+        <div class="lbl">
+          <span>Post a Requirement</span>
+          <small>Let suppliers come to you</small>
+        </div>
+        →
+      </button>
+    </div>
+
+    <!-- Related Shows -->
+    <div class="sb-card">
+      <div class="sb-card-title">Related Shows</div>
+      <div id="relatedShows"></div>
+    </div>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer class="show-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <span class="biz">BIZ</span><span class="necto">NECTO</span>
+    </div>
+    <div class="footer-copy">© 2026 Biznecto · Connecting Businesses Globally</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── PAGE TRANSITION ENGINE ───
+function navigateTo(url) {
+  const overlay = document.getElementById('page-transition');
+  overlay.classList.add('visible');
+  setTimeout(() => { window.location.href = url; }, 380);
+}
+
+// Fade in on load
+window.addEventListener('pageshow', function(e) {
+  document.getElementById('page-transition').classList.remove('visible');
+});
+
+// ─── SHOW DATA ───
+const showData = {
+  gulfood: {
+    name:'Gulfood 2026', emoji:'🍽️',
+    date:'17–21 Feb 2026', dateISO:'2026-02-17',
+    loc:'Dubai World Trade Centre, UAE', locShort:'Dubai, UAE',
+    industry:'Food & Beverage',
+    desc:'The world\'s largest annual food & beverage trade show. Gulfood connects food industry professionals with buyers, distributors, and decision-makers from 190+ countries. Over 5,000 exhibitors across 26 product sectors — dairy to specialty food, bakery to ingredients.',
+    website:'https://gulfood.com', websiteDisplay:'gulfood.com',
+    freq:'Annual', size:'5,000+ exhibitors · 100,000+ visitors',
+    highlights:['World\'s largest food & beverage trade show','26 product sectors — dairy to specialty food','Dedicated buyer matchmaking sessions','Investor & startup programme','GCC sourcing opportunities across 26 sectors'],
+    suppliers:12, color:'#16a34a',
+    related:['gitex','arabhealth','anuga']
+  },
+  gitex: {
+    name:'GITEX Global 2025', emoji:'💻',
+    date:'13–17 Oct 2025', dateISO:'2025-10-13',
+    loc:'Dubai World Trade Centre, UAE', locShort:'Dubai, UAE',
+    industry:'IT & Technology',
+    desc:'The world\'s largest tech show and startup event. Attracting 6,500+ exhibitors across AI, cybersecurity, cloud, and emerging technologies. A platform where global tech leaders and innovators converge to shape the digital future.',
+    website:'https://gitex.com', websiteDisplay:'gitex.com',
+    freq:'Annual', size:'6,500+ exhibitors · 180,000+ visitors',
+    highlights:['AI & Future Tech dedicated zones','GITEX Startup Movement — 1,000+ startups','Investor matchmaking sessions','Global Government Summit','North Star African startup programme'],
+    suppliers:8, color:'#2563eb',
+    related:['ces','arabhealth','adipec']
+  },
+  arabhealth: {
+    name:'Arab Health 2026', emoji:'🏥',
+    date:'26–29 Jan 2026', dateISO:'2026-01-26',
+    loc:'Dubai World Trade Centre, UAE', locShort:'Dubai, UAE',
+    industry:'Healthcare',
+    desc:'The largest healthcare exhibition and conference in the Middle East & Africa. Showcases cutting-edge medical technologies, devices, diagnostics, and health services across 3,000+ exhibitors from 70+ countries.',
+    website:'https://arabhealthonline.com', websiteDisplay:'arabhealthonline.com',
+    freq:'Annual', size:'3,000+ exhibitors · 55,000+ visitors',
+    highlights:['Medical devices & diagnostics showcase','Pharma & lab equipment zone','Hospital design & infrastructure','CME accredited conference programme','Investment & partnership forum'],
+    suppliers:6, color:'#7c3aed',
+    related:['gulfood','adipec','hannover']
+  },
+  adipec: {
+    name:'ADIPEC 2025', emoji:'⚡',
+    date:'4–7 Nov 2025', dateISO:'2025-11-04',
+    loc:'ADNEC, Abu Dhabi, UAE', locShort:'Abu Dhabi, UAE',
+    industry:'Energy & Petroleum',
+    desc:'The world\'s most impactful energy event. Bringing together energy ministers, CEOs, and innovators from 160,000+ attendees worldwide. Covers oil & gas, renewables, and the entire energy transition ecosystem.',
+    website:'https://adipec.com', websiteDisplay:'adipec.com',
+    freq:'Annual', size:'2,200+ exhibitors · 160,000+ visitors',
+    highlights:['Oil & gas equipment & services','Energy transition technologies','Offshore & marine dedicated zone','Technical conference & ADIPEC awards','Women in energy programme'],
+    suppliers:4, color:'#f59e0b',
+    related:['gitex','hannover','big5']
+  },
+  hannover: {
+    name:'Hannover Messe 2026', emoji:'🏭',
+    date:'22–26 Mar 2026', dateISO:'2026-03-22',
+    loc:'Hannover Exhibition Grounds, Germany', locShort:'Hannover, Germany',
+    industry:'Manufacturing',
+    desc:'The world\'s leading trade fair for industrial technology. Covering automation, energy, digital transformation, and industrial supply chains. The global meeting point for manufacturing and industrial innovation.',
+    website:'https://hannovermesse.de', websiteDisplay:'hannovermesse.de',
+    freq:'Annual', size:'4,000+ exhibitors · 130,000+ visitors',
+    highlights:['Industrial automation & robotics','Digital factory & Industrial IoT','Energy management & smartgrid','Hydrogen & decarbonisation zone','Motion, Drives & Automation (MDA)'],
+    suppliers:9, color:'#0a1f44',
+    related:['adipec','big5','ces']
+  },
+  ces: {
+    name:'CES 2026', emoji:'📱',
+    date:'7–10 Jan 2026', dateISO:'2026-01-07',
+    loc:'Las Vegas Convention Center, USA', locShort:'Las Vegas, USA',
+    industry:'Consumer Electronics',
+    desc:'The most influential tech event in the world. Showcasing breakthrough technologies from 8K TVs to autonomous vehicles, smart homes, and health tech. 4,500+ exhibitors and 135,000+ attendees make CES the ultimate tech stage.',
+    website:'https://ces.tech', websiteDisplay:'ces.tech',
+    freq:'Annual', size:'4,500+ exhibitors · 135,000+ visitors',
+    highlights:['Consumer electronics & next-gen gadgets','Automotive & mobility tech','Health & wellness technology','Startup & innovation zones','Smart home & sustainability tech'],
+    suppliers:5, color:'#2563eb',
+    related:['gitex','hannover','gulfood']
+  },
+  anuga: {
+    name:'Anuga 2025', emoji:'🌾',
+    date:'4–8 Oct 2025', dateISO:'2025-10-04',
+    loc:'Cologne Exhibition Centre, Germany', locShort:'Cologne, Germany',
+    industry:'Food & Beverage',
+    desc:'The world\'s leading trade fair for food and beverages. The ultimate global meeting point for the F&B sector — buyers from 200+ countries, across 10 specialised trade fairs under one roof in Cologne.',
+    website:'https://anuga.com', websiteDisplay:'anuga.com',
+    freq:'Biennial', size:'7,500+ exhibitors · 170,000+ visitors',
+    highlights:['10 specialised shows in one venue','Organic & health food spotlight','Beverages & dairy pavilions','Retail & foodservice buyer matchmaking','Anuga Taste innovation forum'],
+    suppliers:7, color:'#16a34a',
+    related:['gulfood','big5','arabhealth']
+  },
+  big5: {
+    name:'Big 5 Global 2025', emoji:'🏗️',
+    date:'24–27 Nov 2025', dateISO:'2025-11-24',
+    loc:'Dubai World Trade Centre, UAE', locShort:'Dubai, UAE',
+    industry:'Construction',
+    desc:"The Middle East's largest construction and building materials exhibition. Connecting construction professionals with suppliers of building materials, systems, and cutting-edge technologies across 2,500+ exhibitors.",
+    website:'https://big5construct.com', websiteDisplay:'big5construct.com',
+    freq:'Annual', size:'2,500+ exhibitors · 75,000+ visitors',
+    highlights:['Building materials & finishing products','Structural & civil engineering zone','Smart building & BIM technology','MEP (mechanical, electrical, plumbing)','Sustainable construction practices'],
+    suppliers:3, color:'#92400e',
+    related:['hannover','adipec','gulfood']
+  }
+};
+
+// ─── READ URL PARAM ───
+const params = new URLSearchParams(window.location.search);
+const showId = params.get('id') || 'gulfood';
+const d = showData[showId];
+
+// ─── POPULATE PAGE ───
+if (d) {
+  // Meta
+  document.title = d.name + ' — Biznecto';
+
+  // Hero
+  document.getElementById('heroShowName').textContent = d.name;
+  document.getElementById('heroEmoji').textContent = d.emoji;
+  document.getElementById('heroTitle').textContent = d.name;
+  document.getElementById('heroDateText').textContent = d.date;
+  document.getElementById('heroLocText').textContent = d.locShort;
+  document.getElementById('heroBadgeIndustry').textContent = d.industry;
+  document.getElementById('heroBadgeFreq').textContent = d.freq;
+
+  // Hero color
+  document.getElementById('showHero').style.background = d.color;
+  document.documentElement.style.setProperty('--show-color', d.color);
+
+  // About
+  document.getElementById('showDesc').textContent = d.desc;
+  document.getElementById('statSize').textContent = d.size;
+  document.getElementById('statSuppliers').textContent = d.suppliers + ' companies on Biznecto';
+  document.getElementById('statFreq').textContent = d.freq;
+  document.getElementById('statWebsite').href = d.website;
+  document.getElementById('statWebsite').textContent = d.websiteDisplay;
+
+  // Sidebar
+  document.getElementById('sbDate').textContent = d.date;
+  document.getElementById('sbVenue').textContent = d.loc;
+  document.getElementById('sbIndustry').textContent = d.industry;
+  document.getElementById('sbFreq').textContent = d.freq;
+  document.getElementById('sbWebsite').href = d.website;
+  document.getElementById('sbWebsite').textContent = d.websiteDisplay;
+
+  // Highlights
+  const hlList = document.getElementById('highlightList');
+  d.highlights.forEach((h, i) => {
+    const item = document.createElement('div');
+    item.className = 'hl-item';
+    item.innerHTML = `
+      <div class="hl-dot">${i + 1}</div>
+      <div class="hl-text">${h}</div>
+    `;
+    hlList.appendChild(item);
+  });
+
+  // Related Shows
+  const relatedEl = document.getElementById('relatedShows');
+  (d.related || []).slice(0, 3).forEach(key => {
+    const r = showData[key];
+    if (!r) return;
+    const div = document.createElement('div');
+    div.className = 'related-show';
+    div.onclick = () => navigateTo('show.html?id=' + key);
+    div.innerHTML = `
+      <div class="rs-icon" style="background:${r.color}20;">${r.emoji}</div>
+      <div style="flex:1;min-width:0;">
+        <div class="rs-name">${r.name}</div>
+        <div class="rs-meta">${r.date} · ${r.locShort}</div>
+      </div>
+      <div class="rs-arr">→</div>
+    `;
+    relatedEl.appendChild(div);
+  });
+
+  // Countdown
+  startCountdown(d.dateISO);
+}
+
+// ─── COUNTDOWN TIMER ───
+function startCountdown(isoDate) {
+  const target = new Date(isoDate).getTime();
+  function update() {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('countdownUnits').style.display = 'none';
+      const pastEl = document.getElementById('countdownPast');
+      pastEl.style.display = 'block';
+      pastEl.textContent = 'This show has already taken place.';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+    document.getElementById('cdHours').textContent = String(hrs).padStart(2, '0');
+    document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+    document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 1000);
+}
+
+// ─── SUPPLIER SEARCH ───
+function handleSupplierSearch() {
+  const q = document.getElementById('supplierSearch').value.trim();
+  if (q) {
+    window.location.href = 'index.html?search=' + encodeURIComponent(q) + '#directory';
+  }
+}
+document.getElementById('supplierSearch').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleSupplierSearch();
+});
+
+// ─── TOAST ───
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ─── TRANSITION: intercept all internal links ───
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href]');
+  if (a && a.href && !a.href.startsWith('javascript') && !a.target && !a.href.startsWith('mailto')) {
+    const url = a.href;
+    if (url.includes(window.location.host) || url.startsWith('/') || !url.startsWith('http')) {
+      e.preventDefault();
+      navigateTo(url);
+    }
+  }
+});
+</script>
+</body>
+</html>

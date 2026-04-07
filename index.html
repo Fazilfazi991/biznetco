@@ -23,7 +23,27 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--fb);color:var(--body);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--fb);color:var(--body);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;animation:bodyFadeIn 0.35s ease both;}
+@keyframes bodyFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ─── PAGE TRANSITION OVERLAY ─── */
+#page-transition{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+#page-transition.visible{opacity:1;pointer-events:all;}
+.pt-logo{
+  display:inline-flex;align-items:center;gap:0;
+  opacity:0;transform:scale(0.9);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1) 0.1s;
+}
+#page-transition.visible .pt-logo{opacity:1;transform:scale(1);}
+.pt-biz{background:var(--teal);color:#fff;padding:6px 12px;font-family:var(--fb);font-weight:900;font-size:22px;letter-spacing:.5px;border-radius:4px 0 0 4px;line-height:1.4;}
+.pt-necto{color:#fff;font-family:var(--fb);font-weight:800;font-size:22px;letter-spacing:.5px;padding:6px 10px;border:2px solid rgba(255,255,255,0.25);border-left:none;border-radius:0 4px 4px 0;line-height:1.4;}
 
 /* ─── TYPOGRAPHY HELPERS ─── */
 .fh{font-family:var(--fh);}
@@ -563,6 +583,14 @@ body{font-family:var(--fb);color:var(--body);background:#fff;overflow-x:hidden;-
 </style>
 </head>
 <body>
+
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition">
+  <div class="pt-logo">
+    <span class="pt-biz">BIZ</span>
+    <span class="pt-necto">NECTO</span>
+  </div>
+</div>
 
 <!-- ─── TOP NAV ─── -->
 <nav class="top-nav" id="topNav">
@@ -1758,24 +1786,21 @@ const showData={
   big5:{name:'Big 5 Global 2025',emoji:'🏗️',date:'24–27 Nov 2025',loc:'Dubai World Trade Centre, UAE',industry:'Construction',desc:"The Middle East's largest construction and building materials exhibition. Connects construction professionals with suppliers of building materials, systems, and technologies.",website:'https://big5construct.com',freq:'Annual',size:'2,500+ exhibitors · 75,000+ visitors',highlights:['Building materials & products','Structural & civil engineering','Smart building technology','MEP (mechanical, electrical, plumbing)'],suppliers:3,color:'#92400e'}
 };
 function openShow(key){
-  const d=showData[key]; if(!d)return;
-  document.getElementById('sd-emoji').textContent=d.emoji;
-  document.getElementById('sd-name').textContent=d.name;
-  document.getElementById('sd-date').textContent=d.date;
-  document.getElementById('sd-loc').textContent=d.loc;
-  document.getElementById('sd-industry').textContent=d.industry;
-  document.getElementById('sd-size').textContent=d.size;
-  document.getElementById('sd-freq').textContent=d.freq;
-  document.getElementById('sd-desc').textContent=d.desc;
-  document.getElementById('sd-website').href=d.website;
-  document.getElementById('sd-website').textContent=d.website.replace('https://','');
-  document.getElementById('sd-suppliers').textContent=d.suppliers+' companies on Biznecto';
-  document.getElementById('sd-header-bg').style.background=d.color;
-  document.getElementById('sd-highlights').innerHTML=d.highlights.map(h=>`<li style="display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:13px;color:rgba(255,255,255,0.7);"><span style="color:var(--teal);flex-shrink:0;margin-top:1px;">✓</span>${h}</li>`).join('');
-  goPage('showdetail',null);
+  navigateTo('show.html?id='+key);
 }
 
 
+
+// ─── PAGE TRANSITION ───
+function navigateTo(url){
+  const overlay=document.getElementById('page-transition');
+  overlay.classList.add('visible');
+  setTimeout(()=>{window.location.href=url;},380);
+}
+window.addEventListener('pageshow',function(e){
+  const overlay=document.getElementById('page-transition');
+  if(overlay)overlay.classList.remove('visible');
+});
 
 // ─── STATE ───
 let loggedIn = false;
